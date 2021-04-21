@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"allen-zc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="本章笔记复习材料采用《计算机网络（谢希仁 第七版）》，目录结构采用顺序排列。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记">
+<meta property="og:url" content="https://allen-zc.github.io/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/index.html">
+<meta property="og:site_name" content="AllenChen&#39;s Blog">
+<meta property="og:description" content="本章笔记复习材料采用《计算机网络（谢希仁 第七版）》，目录结构采用顺序排列。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-30T16:55:26.000Z">
+<meta property="article:modified_time" content="2020-12-23T15:34:50.382Z">
+<meta property="article:author" content="AllenChen">
+<meta property="article:tag" content="computer-networks">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://allen-zc.github.io/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记 | AllenChen's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a target="_blank" rel="noopener" href="https://github.com/Allen-zc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenChen's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">晨学长</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-top">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>排行榜</a>
+
+  </li>
+        <li class="menu-item menu-item-bookstore">
+
+    <a href="/bookstore/" rel="section"><i class="fa fa-store fa-fw"></i>书店</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-book-open fa-fw"></i>阅读</a>
+
+  </li>
+        <li class="menu-item menu-item-movies">
+
+    <a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>观影</a>
+
+  </li>
+        <li class="menu-item menu-item-games">
+
+    <a href="/games/" rel="section"><i class="fa fa-gamepad fa-fw"></i>游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>生活足迹</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://allen-zc.github.io/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="AllenChen">
+      <meta itemprop="description" content="Sometimes it's the very people who no one imagines angthing of who do the things that no one can imagine. <br> 有时候，正是那些谁也想不到的人，却做出了谁也想不到的事情。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AllenChen's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-31 00:55:26" itemprop="dateCreated datePublished" datetime="2020-10-31T00:55:26+08:00">2020-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-23 23:34:50" itemprop="dateModified" datetime="2020-12-23T23:34:50+08:00">2020-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">计算机类</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B1%BB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/" class="post-meta-item leancloud_visitors" data-flag-title="《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+            <div class="post-description">本章笔记复习材料采用《计算机网络（谢希仁 第七版）》，目录结构采用顺序排列。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="《计算机网络（谢希仁-第七版）》全书知识梳理复习笔记"><a href="#《计算机网络（谢希仁-第七版）》全书知识梳理复习笔记" class="headerlink" title="《计算机网络（谢希仁 第七版）》全书知识梳理复习笔记"></a>《计算机网络（谢希仁 第七版）》全书知识梳理复习笔记</h1><p>本章笔记复习材料采用《计算机网络（谢希仁 第七版）》，目录结构采用顺序排列。</p>
+<blockquote>
+<p>日常牢记<a href="/2020/10/07/Markdown%E8%AF%AD%E6%B3%95/">Markdown语法</a></p>
+</blockquote>
+<h1 id="本书目录"><a href="#本书目录" class="headerlink" title="本书目录"></a>本书目录</h1><h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h1><h2 id="1-1-计算机网络在信息时代中的作用"><a href="#1-1-计算机网络在信息时代中的作用" class="headerlink" title="1.1 计算机网络在信息时代中的作用"></a>1.1 计算机网络在信息时代中的作用</h2><p>21世纪的重要特征：数字化、网络化和信息化，以网络为核心的信息时代。</p>
+<ol>
+<li>常用的网络：<ol>
+<li>电信网络：向用户提供电话、电报及传真等服务。</li>
+<li>有线电视网络：向用户传送各种电视节目。</li>
+<li>计算机网络：使用户能够在计算机之间传送数据文件。</li>
+</ol>
+</li>
+<li>Internet两种译名：<ol>
+<li>internet（互连网）:是一个通用名词，泛指由多个计算机网络互联而成的计算机网络。</li>
+<li>Internet（互联网）：是一个专用名词，指当前全球最大的、开放的、由众多网络相互连接而成的特定互联网，采用TCP/IP协议族作为通信规则。</li>
+</ol>
+</li>
+</ol>
+<p>扩展： intranet（内联网）：又称企业内联网，是用因特网技术建立的可支持企事业内部业务处理和信息交流的综合网络信息系统，通常采用一定的安全措施与企事业外部的因特网用户相隔离，对内部用户在信息使用的权限上也有严格的规定。</p>
+<ol start="3">
+<li>互联网具有两个重要的基本特征：<strong>连通性（指相隔多远都可交换各种信息）</strong> 和 <strong>共享性（指：资源共享）</strong>。</li>
+</ol>
+<h2 id="1-2-互联网概述"><a href="#1-2-互联网概述" class="headerlink" title="1.2 互联网概述"></a>1.2 互联网概述</h2><h3 id="1-2-1-网络中的网络"><a href="#1-2-1-网络中的网络" class="headerlink" title="1.2.1 网络中的网络"></a>1.2.1 网络中的网络</h3><p>计算机网络（简称为网络）：由若干结点（node）和连接这些结点的链路（link）组成。网络中的结点包括：计算机、集线器、交换机、路由器等。</p>
+<h3 id="1-2-2-互联网基础结构发展的三个阶段"><a href="#1-2-2-互联网基础结构发展的三个阶段" class="headerlink" title="1.2.2 互联网基础结构发展的三个阶段"></a>1.2.2 互联网基础结构发展的三个阶段</h3><h3 id="1-2-3-互联网的标准化工作"><a href="#1-2-3-互联网的标准化工作" class="headerlink" title="1.2.3 互联网的标准化工作"></a>1.2.3 互联网的标准化工作</h3><h2 id="1-3-互联网的组成"><a href="#1-3-互联网的组成" class="headerlink" title="1.3 互联网的组成"></a>1.3 互联网的组成</h2><h3 id="1-3-1-互联网的边缘部分"><a href="#1-3-1-互联网的边缘部分" class="headerlink" title="1.3.1 互联网的边缘部分"></a>1.3.1 互联网的边缘部分</h3><h3 id="1-3-2-互联网的核心部分"><a href="#1-3-2-互联网的核心部分" class="headerlink" title="1.3.2 互联网的核心部分"></a>1.3.2 互联网的核心部分</h3><h2 id="1-4-计算机网络在我国的发展"><a href="#1-4-计算机网络在我国的发展" class="headerlink" title="1.4 计算机网络在我国的发展"></a>1.4 计算机网络在我国的发展</h2><h2 id="1-5-计算机网络的类别"><a href="#1-5-计算机网络的类别" class="headerlink" title="1.5 计算机网络的类别"></a>1.5 计算机网络的类别</h2><h3 id="1-5-1-计算机网络的定义"><a href="#1-5-1-计算机网络的定义" class="headerlink" title="1.5.1 计算机网络的定义"></a>1.5.1 计算机网络的定义</h3><h3 id="1-5-2-几种不同类别的计算机网络"><a href="#1-5-2-几种不同类别的计算机网络" class="headerlink" title="1.5.2 几种不同类别的计算机网络"></a>1.5.2 几种不同类别的计算机网络</h3><h2 id="1-6-计算机网络的性能"><a href="#1-6-计算机网络的性能" class="headerlink" title="1.6 计算机网络的性能"></a>1.6 计算机网络的性能</h2><h3 id="1-6-1-计算机网络的性能指标"><a href="#1-6-1-计算机网络的性能指标" class="headerlink" title="1.6.1 计算机网络的性能指标"></a>1.6.1 计算机网络的性能指标</h3><h3 id="1-6-2-计算机网络的非性能指标"><a href="#1-6-2-计算机网络的非性能指标" class="headerlink" title="1.6.2 计算机网络的非性能指标"></a>1.6.2 计算机网络的非性能指标</h3><h2 id="1-7-计算机网络体系结构"><a href="#1-7-计算机网络体系结构" class="headerlink" title="1.7 计算机网络体系结构"></a>1.7 计算机网络体系结构</h2><h3 id="1-7-1-计算机网络体系结构的形成"><a href="#1-7-1-计算机网络体系结构的形成" class="headerlink" title="1.7.1 计算机网络体系结构的形成"></a>1.7.1 计算机网络体系结构的形成</h3><h3 id="1-7-2-协议与划分层次"><a href="#1-7-2-协议与划分层次" class="headerlink" title="1.7.2 协议与划分层次"></a>1.7.2 协议与划分层次</h3><h3 id="1-7-3-具有五层协议的体系结构"><a href="#1-7-3-具有五层协议的体系结构" class="headerlink" title="1.7.3 具有五层协议的体系结构"></a>1.7.3 具有五层协议的体系结构</h3><h3 id="1-7-4-实体、协议、服务和服务访问点"><a href="#1-7-4-实体、协议、服务和服务访问点" class="headerlink" title="1.7.4 实体、协议、服务和服务访问点"></a>1.7.4 实体、协议、服务和服务访问点</h3><h3 id="1-7-5-TCP-IP的体系结构"><a href="#1-7-5-TCP-IP的体系结构" class="headerlink" title="1.7.5 TCP/IP的体系结构"></a>1.7.5 TCP/IP的体系结构</h3><h1 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h1><h2 id="2-1-物理层的基本概念"><a href="#2-1-物理层的基本概念" class="headerlink" title="2.1 物理层的基本概念"></a>2.1 物理层的基本概念</h2><h2 id="2-2-数据通信的基础知识"><a href="#2-2-数据通信的基础知识" class="headerlink" title="2.2 数据通信的基础知识"></a>2.2 数据通信的基础知识</h2><h3 id="2-2-1-数据通信系统的模型"><a href="#2-2-1-数据通信系统的模型" class="headerlink" title="2.2.1 数据通信系统的模型"></a>2.2.1 数据通信系统的模型</h3><h3 id="2-2-2-有关信道的几个基本概念"><a href="#2-2-2-有关信道的几个基本概念" class="headerlink" title="2.2.2 有关信道的几个基本概念"></a>2.2.2 有关信道的几个基本概念</h3><h3 id="2-2-3-信道的极限容量"><a href="#2-2-3-信道的极限容量" class="headerlink" title="2.2.3 信道的极限容量"></a>2.2.3 信道的极限容量</h3><h2 id="2-3-物理层下面的传输媒体"><a href="#2-3-物理层下面的传输媒体" class="headerlink" title="2.3 物理层下面的传输媒体"></a>2.3 物理层下面的传输媒体</h2><h3 id="2-3-1-导引型传输媒体"><a href="#2-3-1-导引型传输媒体" class="headerlink" title="2.3.1 导引型传输媒体"></a>2.3.1 导引型传输媒体</h3><h3 id="2-3-2-非导引型传输媒体"><a href="#2-3-2-非导引型传输媒体" class="headerlink" title="2.3.2 非导引型传输媒体"></a>2.3.2 非导引型传输媒体</h3><h2 id="2-4-信道复用技术"><a href="#2-4-信道复用技术" class="headerlink" title="2.4 信道复用技术"></a>2.4 信道复用技术</h2><h3 id="2-4-1-频分复用、时分复用和统计时分复用"><a href="#2-4-1-频分复用、时分复用和统计时分复用" class="headerlink" title="2.4.1 频分复用、时分复用和统计时分复用"></a>2.4.1 频分复用、时分复用和统计时分复用</h3><h3 id="2-4-2-波分复用"><a href="#2-4-2-波分复用" class="headerlink" title="2.4.2 波分复用"></a>2.4.2 波分复用</h3><h3 id="2-4-3-码分复用"><a href="#2-4-3-码分复用" class="headerlink" title="2.4.3 码分复用"></a>2.4.3 码分复用</h3><h2 id="2-5-数字传输系统"><a href="#2-5-数字传输系统" class="headerlink" title="2.5 数字传输系统"></a>2.5 数字传输系统</h2><h2 id="2-6-宽带接入技术"><a href="#2-6-宽带接入技术" class="headerlink" title="2.6 宽带接入技术"></a>2.6 宽带接入技术</h2><h3 id="2-6-1-ADSL技术"><a href="#2-6-1-ADSL技术" class="headerlink" title="2.6.1 ADSL技术"></a>2.6.1 ADSL技术</h3><h3 id="2-6-2-光纤同轴混合网（HFC网）"><a href="#2-6-2-光纤同轴混合网（HFC网）" class="headerlink" title="2.6.2 光纤同轴混合网（HFC网）"></a>2.6.2 光纤同轴混合网（HFC网）</h3><h3 id="FTTx-技术"><a href="#FTTx-技术" class="headerlink" title="FTTx 技术"></a>FTTx 技术</h3><h1 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h1><h2 id="3-1-使用点对点信道的数据链路层"><a href="#3-1-使用点对点信道的数据链路层" class="headerlink" title="3.1 使用点对点信道的数据链路层"></a>3.1 使用点对点信道的数据链路层</h2><h3 id="3-1-1-数据链路和帧"><a href="#3-1-1-数据链路和帧" class="headerlink" title="3.1.1 数据链路和帧"></a>3.1.1 数据链路和帧</h3><h3 id="3-1-2-三个基本问题"><a href="#3-1-2-三个基本问题" class="headerlink" title="3.1.2 三个基本问题"></a>3.1.2 三个基本问题</h3><h2 id="3-2-点对点协议PPP"><a href="#3-2-点对点协议PPP" class="headerlink" title="3.2 点对点协议PPP"></a>3.2 点对点协议PPP</h2><h3 id="3-2-1-PPP协议的特点"><a href="#3-2-1-PPP协议的特点" class="headerlink" title="3.2.1 PPP协议的特点"></a>3.2.1 PPP协议的特点</h3><h3 id="3-2-2-PPP协议的帧格式"><a href="#3-2-2-PPP协议的帧格式" class="headerlink" title="3.2.2 PPP协议的帧格式"></a>3.2.2 PPP协议的帧格式</h3><h3 id="3-2-3-PPP协议的工作状态"><a href="#3-2-3-PPP协议的工作状态" class="headerlink" title="3.2.3 PPP协议的工作状态"></a>3.2.3 PPP协议的工作状态</h3><h2 id="3-3-使用广播信道的数据链路层"><a href="#3-3-使用广播信道的数据链路层" class="headerlink" title="3.3 使用广播信道的数据链路层"></a>3.3 使用广播信道的数据链路层</h2><h3 id="3-3-1-局域网的数据链路层"><a href="#3-3-1-局域网的数据链路层" class="headerlink" title="3.3.1 局域网的数据链路层"></a>3.3.1 局域网的数据链路层</h3><h3 id="3-3-2-CSMA-CD协议"><a href="#3-3-2-CSMA-CD协议" class="headerlink" title="3.3.2 CSMA/CD协议"></a>3.3.2 CSMA/CD协议</h3><h3 id="3-3-3-使用集线器的星型拓扑"><a href="#3-3-3-使用集线器的星型拓扑" class="headerlink" title="3.3.3 使用集线器的星型拓扑"></a>3.3.3 使用集线器的星型拓扑</h3><h3 id="3-3-4-以太网的信道利用率"><a href="#3-3-4-以太网的信道利用率" class="headerlink" title="3.3.4 以太网的信道利用率"></a>3.3.4 以太网的信道利用率</h3><h3 id="3-3-5-以太网的MAC层"><a href="#3-3-5-以太网的MAC层" class="headerlink" title="3.3.5 以太网的MAC层"></a>3.3.5 以太网的MAC层</h3><h2 id="3-4-扩展的以太网"><a href="#3-4-扩展的以太网" class="headerlink" title="3.4 扩展的以太网"></a>3.4 扩展的以太网</h2><h3 id="3-4-1-在物理层扩展以太网"><a href="#3-4-1-在物理层扩展以太网" class="headerlink" title="3.4.1 在物理层扩展以太网"></a>3.4.1 在物理层扩展以太网</h3><h3 id="3-4-2-在数据链路层扩展以太网"><a href="#3-4-2-在数据链路层扩展以太网" class="headerlink" title="3.4.2 在数据链路层扩展以太网"></a>3.4.2 在数据链路层扩展以太网</h3><h3 id="3-4-3-虚拟局域网"><a href="#3-4-3-虚拟局域网" class="headerlink" title="3.4.3 虚拟局域网"></a>3.4.3 虚拟局域网</h3><h2 id="3-5-高速以太网"><a href="#3-5-高速以太网" class="headerlink" title="3.5 高速以太网"></a>3.5 高速以太网</h2><h3 id="3-5-1-100BASE-T以太网"><a href="#3-5-1-100BASE-T以太网" class="headerlink" title="3.5.1 100BASE-T以太网"></a>3.5.1 100BASE-T以太网</h3><h3 id="3-5-2-吉比特以太网"><a href="#3-5-2-吉比特以太网" class="headerlink" title="3.5.2 吉比特以太网"></a>3.5.2 吉比特以太网</h3><h3 id="3-5-3-10吉比特以太网（10GE）和更快的以太网"><a href="#3-5-3-10吉比特以太网（10GE）和更快的以太网" class="headerlink" title="3.5.3 10吉比特以太网（10GE）和更快的以太网"></a>3.5.3 10吉比特以太网（10GE）和更快的以太网</h3><h3 id="3-5-4-使用以太网进行宽带接入"><a href="#3-5-4-使用以太网进行宽带接入" class="headerlink" title="3.5.4 使用以太网进行宽带接入"></a>3.5.4 使用以太网进行宽带接入</h3><h1 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h1><h2 id="4-1-网络层提供的两种服务"><a href="#4-1-网络层提供的两种服务" class="headerlink" title="4.1 网络层提供的两种服务"></a>4.1 网络层提供的两种服务</h2><h2 id="4-2-网际协议IP"><a href="#4-2-网际协议IP" class="headerlink" title="4.2 网际协议IP"></a>4.2 网际协议IP</h2><h3 id="4-2-1-虚拟互连网络"><a href="#4-2-1-虚拟互连网络" class="headerlink" title="4.2.1 虚拟互连网络"></a>4.2.1 虚拟互连网络</h3><h3 id="4-2-2-分类的IP地址"><a href="#4-2-2-分类的IP地址" class="headerlink" title="4.2.2 分类的IP地址"></a>4.2.2 分类的IP地址</h3><h3 id="4-2-3-IP地址与硬件地址"><a href="#4-2-3-IP地址与硬件地址" class="headerlink" title="4.2.3 IP地址与硬件地址"></a>4.2.3 IP地址与硬件地址</h3><h3 id="4-2-4-地址解析协议ARP"><a href="#4-2-4-地址解析协议ARP" class="headerlink" title="4.2.4 地址解析协议ARP"></a>4.2.4 地址解析协议ARP</h3><h3 id="4-2-5-IP数据报的格式"><a href="#4-2-5-IP数据报的格式" class="headerlink" title="4.2.5 IP数据报的格式"></a>4.2.5 IP数据报的格式</h3><h3 id="4-2-6-IP层转发分组的流程"><a href="#4-2-6-IP层转发分组的流程" class="headerlink" title="4.2.6 IP层转发分组的流程"></a>4.2.6 IP层转发分组的流程</h3><h2 id="4-3-划分子网和构造超网"><a href="#4-3-划分子网和构造超网" class="headerlink" title="4.3 划分子网和构造超网"></a>4.3 划分子网和构造超网</h2><h3 id="4-3-1-划分子阿旺"><a href="#4-3-1-划分子阿旺" class="headerlink" title="4.3.1 划分子阿旺"></a>4.3.1 划分子阿旺</h3><h3 id="4-3-2-使用子网时分组的转发"><a href="#4-3-2-使用子网时分组的转发" class="headerlink" title="4.3.2 使用子网时分组的转发"></a>4.3.2 使用子网时分组的转发</h3><h3 id="4-3-3-无分类编址CIDR（构造超网）"><a href="#4-3-3-无分类编址CIDR（构造超网）" class="headerlink" title="4.3.3 无分类编址CIDR（构造超网）"></a>4.3.3 无分类编址CIDR（构造超网）</h3><h2 id="4-4-网际控制报文协议ICMP"><a href="#4-4-网际控制报文协议ICMP" class="headerlink" title="4.4 网际控制报文协议ICMP"></a>4.4 网际控制报文协议ICMP</h2><h3 id="4-4-1-ICMP报文的种类"><a href="#4-4-1-ICMP报文的种类" class="headerlink" title="4.4.1 ICMP报文的种类"></a>4.4.1 ICMP报文的种类</h3><h3 id="4-4-2-ICMP的应用举例"><a href="#4-4-2-ICMP的应用举例" class="headerlink" title="4.4.2 ICMP的应用举例"></a>4.4.2 ICMP的应用举例</h3><h2 id="4-5-互联网的路由选择协议"><a href="#4-5-互联网的路由选择协议" class="headerlink" title="4.5 互联网的路由选择协议"></a>4.5 互联网的路由选择协议</h2><h3 id="4-5-1-有关路由选择学医的几个基本概念"><a href="#4-5-1-有关路由选择学医的几个基本概念" class="headerlink" title="4.5.1 有关路由选择学医的几个基本概念"></a>4.5.1 有关路由选择学医的几个基本概念</h3><h3 id="4-5-2-内部网关协议RIP"><a href="#4-5-2-内部网关协议RIP" class="headerlink" title="4.5.2 内部网关协议RIP"></a>4.5.2 内部网关协议RIP</h3><h3 id="4-5-3-内部网关协议OSPF"><a href="#4-5-3-内部网关协议OSPF" class="headerlink" title="4.5.3 内部网关协议OSPF"></a>4.5.3 内部网关协议OSPF</h3><h3 id="4-5-4-外部网关协议BGP"><a href="#4-5-4-外部网关协议BGP" class="headerlink" title="4.5.4 外部网关协议BGP"></a>4.5.4 外部网关协议BGP</h3><h3 id="4-5-5-路由器的构成"><a href="#4-5-5-路由器的构成" class="headerlink" title="4.5.5 路由器的构成"></a>4.5.5 路由器的构成</h3><h2 id="4-6-IPv6"><a href="#4-6-IPv6" class="headerlink" title="4.6 IPv6"></a>4.6 IPv6</h2><h3 id="4-6-1-IPv6的基本首部"><a href="#4-6-1-IPv6的基本首部" class="headerlink" title="4.6.1 IPv6的基本首部"></a>4.6.1 IPv6的基本首部</h3><h3 id="4-6-2-IPv6的地址"><a href="#4-6-2-IPv6的地址" class="headerlink" title="4.6.2 IPv6的地址"></a>4.6.2 IPv6的地址</h3><h3 id="4-6-3-从IPv4向IPv6过渡"><a href="#4-6-3-从IPv4向IPv6过渡" class="headerlink" title="4.6.3 从IPv4向IPv6过渡"></a>4.6.3 从IPv4向IPv6过渡</h3><h3 id="4-6-4-ICMPv6"><a href="#4-6-4-ICMPv6" class="headerlink" title="4.6.4 ICMPv6"></a>4.6.4 ICMPv6</h3><h2 id="4-7-IP多播"><a href="#4-7-IP多播" class="headerlink" title="4.7 IP多播"></a>4.7 IP多播</h2><h3 id="4-7-1-IP多播的基本概念"><a href="#4-7-1-IP多播的基本概念" class="headerlink" title="4.7.1 IP多播的基本概念"></a>4.7.1 IP多播的基本概念</h3><h3 id="4-7-2-在局域网上进行硬件多播"><a href="#4-7-2-在局域网上进行硬件多播" class="headerlink" title="4.7.2 在局域网上进行硬件多播"></a>4.7.2 在局域网上进行硬件多播</h3><h3 id="4-7-3-网际组管理协议IGMP和多播路由选择协议"><a href="#4-7-3-网际组管理协议IGMP和多播路由选择协议" class="headerlink" title="4.7.3 网际组管理协议IGMP和多播路由选择协议"></a>4.7.3 网际组管理协议IGMP和多播路由选择协议</h3><h2 id="4-8-虚拟专用网VPN和网络地址转换NAT"><a href="#4-8-虚拟专用网VPN和网络地址转换NAT" class="headerlink" title="4.8 虚拟专用网VPN和网络地址转换NAT"></a>4.8 虚拟专用网VPN和网络地址转换NAT</h2><h3 id="4-8-1-虚拟专用网VPN"><a href="#4-8-1-虚拟专用网VPN" class="headerlink" title="4.8.1 虚拟专用网VPN"></a>4.8.1 虚拟专用网VPN</h3><h3 id="4-8-2-网络地址转换NAT"><a href="#4-8-2-网络地址转换NAT" class="headerlink" title="4.8.2 网络地址转换NAT"></a>4.8.2 网络地址转换NAT</h3><h2 id="4-9-多协议标记交换MPLS"><a href="#4-9-多协议标记交换MPLS" class="headerlink" title="4.9 多协议标记交换MPLS"></a>4.9 多协议标记交换MPLS</h2><h3 id="4-9-1-MPLS的工作原理"><a href="#4-9-1-MPLS的工作原理" class="headerlink" title="4.9.1 MPLS的工作原理"></a>4.9.1 MPLS的工作原理</h3><h3 id="4-9-2-MPLS首部的位置与格式"><a href="#4-9-2-MPLS首部的位置与格式" class="headerlink" title="4.9.2 MPLS首部的位置与格式"></a>4.9.2 MPLS首部的位置与格式</h3><h1 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h1><h2 id="5-1-运输层协议概述"><a href="#5-1-运输层协议概述" class="headerlink" title="5.1 运输层协议概述"></a>5.1 运输层协议概述</h2><h3 id="5-1-1-进程之间的通信"><a href="#5-1-1-进程之间的通信" class="headerlink" title="5.1.1 进程之间的通信"></a>5.1.1 进程之间的通信</h3><h3 id="5-1-2-运输层的两个主要协议"><a href="#5-1-2-运输层的两个主要协议" class="headerlink" title="5.1.2 运输层的两个主要协议"></a>5.1.2 运输层的两个主要协议</h3><h3 id="5-1-3-运输层的端口"><a href="#5-1-3-运输层的端口" class="headerlink" title="5.1.3 运输层的端口"></a>5.1.3 运输层的端口</h3><h2 id="5-2-用户数据报协议UDP"><a href="#5-2-用户数据报协议UDP" class="headerlink" title="5.2 用户数据报协议UDP"></a>5.2 用户数据报协议UDP</h2><h3 id="5-2-1-UDP概述"><a href="#5-2-1-UDP概述" class="headerlink" title="5.2.1 UDP概述"></a>5.2.1 UDP概述</h3><h3 id="5-2-2-UDP的首部格式"><a href="#5-2-2-UDP的首部格式" class="headerlink" title="5.2.2 UDP的首部格式"></a>5.2.2 UDP的首部格式</h3><h2 id="5-3-传输控制协议TCP概述"><a href="#5-3-传输控制协议TCP概述" class="headerlink" title="5.3 传输控制协议TCP概述"></a>5.3 传输控制协议TCP概述</h2><h3 id="5-3-1-TCP最主要的特点"><a href="#5-3-1-TCP最主要的特点" class="headerlink" title="5.3.1 TCP最主要的特点"></a>5.3.1 TCP最主要的特点</h3><h3 id="5-3-2-TCP的连接"><a href="#5-3-2-TCP的连接" class="headerlink" title="5.3.2 TCP的连接"></a>5.3.2 TCP的连接</h3><h2 id="5-4-可靠传输的工作原理"><a href="#5-4-可靠传输的工作原理" class="headerlink" title="5.4 可靠传输的工作原理"></a>5.4 可靠传输的工作原理</h2><h3 id="5-4-1-停止等待协议"><a href="#5-4-1-停止等待协议" class="headerlink" title="5.4.1 停止等待协议"></a>5.4.1 停止等待协议</h3><h3 id="5-4-2-连续ARQ协议"><a href="#5-4-2-连续ARQ协议" class="headerlink" title="5.4.2 连续ARQ协议"></a>5.4.2 连续ARQ协议</h3><h2 id="5-5-TCP报文段的首部格式"><a href="#5-5-TCP报文段的首部格式" class="headerlink" title="5.5 TCP报文段的首部格式"></a>5.5 TCP报文段的首部格式</h2><h2 id="5-6-TCP可靠传输的实现"><a href="#5-6-TCP可靠传输的实现" class="headerlink" title="5.6 TCP可靠传输的实现"></a>5.6 TCP可靠传输的实现</h2><h3 id="5-6-1-以字节为单位的滑动窗口"><a href="#5-6-1-以字节为单位的滑动窗口" class="headerlink" title="5.6.1 以字节为单位的滑动窗口"></a>5.6.1 以字节为单位的滑动窗口</h3><h3 id="5-6-2-超时重传时间的选择"><a href="#5-6-2-超时重传时间的选择" class="headerlink" title="5.6.2 超时重传时间的选择"></a>5.6.2 超时重传时间的选择</h3><h3 id="5-6-3-选择确认SACK"><a href="#5-6-3-选择确认SACK" class="headerlink" title="5.6.3 选择确认SACK"></a>5.6.3 选择确认SACK</h3><h2 id="5-7-TCP的流量控制"><a href="#5-7-TCP的流量控制" class="headerlink" title="5.7 TCP的流量控制"></a>5.7 TCP的流量控制</h2><h3 id="5-7-1-利用滑动窗口实现流量控制"><a href="#5-7-1-利用滑动窗口实现流量控制" class="headerlink" title="5.7.1 利用滑动窗口实现流量控制"></a>5.7.1 利用滑动窗口实现流量控制</h3><h3 id="5-7-2-TCP的传输效率"><a href="#5-7-2-TCP的传输效率" class="headerlink" title="5.7.2 TCP的传输效率"></a>5.7.2 TCP的传输效率</h3><h2 id="5-8-TCP的拥塞控制"><a href="#5-8-TCP的拥塞控制" class="headerlink" title="5.8 TCP的拥塞控制"></a>5.8 TCP的拥塞控制</h2><h3 id="5-8-1-拥塞控制的一般原理"><a href="#5-8-1-拥塞控制的一般原理" class="headerlink" title="5.8.1 拥塞控制的一般原理"></a>5.8.1 拥塞控制的一般原理</h3><h3 id="5-8-2-TCP的拥塞控制方法"><a href="#5-8-2-TCP的拥塞控制方法" class="headerlink" title="5.8.2 TCP的拥塞控制方法"></a>5.8.2 TCP的拥塞控制方法</h3><h3 id="5-8-3-主动队列管理AQM"><a href="#5-8-3-主动队列管理AQM" class="headerlink" title="5.8.3 主动队列管理AQM"></a>5.8.3 主动队列管理AQM</h3><h2 id="5-9-TCP的运输连接管理"><a href="#5-9-TCP的运输连接管理" class="headerlink" title="5.9 TCP的运输连接管理"></a>5.9 TCP的运输连接管理</h2><h3 id="5-9-1-TCP的连接建立"><a href="#5-9-1-TCP的连接建立" class="headerlink" title="5.9.1 TCP的连接建立"></a>5.9.1 TCP的连接建立</h3><h3 id="5-9-2-TCP的连接释放"><a href="#5-9-2-TCP的连接释放" class="headerlink" title="5.9.2 TCP的连接释放"></a>5.9.2 TCP的连接释放</h3><h3 id="5-9-3-TCP的有限状态机"><a href="#5-9-3-TCP的有限状态机" class="headerlink" title="5.9.3 TCP的有限状态机"></a>5.9.3 TCP的有限状态机</h3><h1 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h1><h2 id="6-1-域名系统DNS"><a href="#6-1-域名系统DNS" class="headerlink" title="6.1 域名系统DNS"></a>6.1 域名系统DNS</h2><h3 id="6-1-1-域名系统概述"><a href="#6-1-1-域名系统概述" class="headerlink" title="6.1.1 域名系统概述"></a>6.1.1 域名系统概述</h3><h3 id="6-1-2-互联网的域名结构"><a href="#6-1-2-互联网的域名结构" class="headerlink" title="6.1.2 互联网的域名结构"></a>6.1.2 互联网的域名结构</h3><h3 id="6-1-3-域名服务器"><a href="#6-1-3-域名服务器" class="headerlink" title="6.1.3 域名服务器"></a>6.1.3 域名服务器</h3><h2 id="6-2-文件传送协议"><a href="#6-2-文件传送协议" class="headerlink" title="6.2 文件传送协议"></a>6.2 文件传送协议</h2><h3 id="6-2-1-FTP概述"><a href="#6-2-1-FTP概述" class="headerlink" title="6.2.1 FTP概述"></a>6.2.1 FTP概述</h3><h3 id="6-2-2-FTP的基本工作原理"><a href="#6-2-2-FTP的基本工作原理" class="headerlink" title="6.2.2 FTP的基本工作原理"></a>6.2.2 FTP的基本工作原理</h3><h3 id="6-2-3-简单文件传送协议TFTP"><a href="#6-2-3-简单文件传送协议TFTP" class="headerlink" title="6.2.3 简单文件传送协议TFTP"></a>6.2.3 简单文件传送协议TFTP</h3><h2 id="6-3-远程终端协议TELNET"><a href="#6-3-远程终端协议TELNET" class="headerlink" title="6.3 远程终端协议TELNET"></a>6.3 远程终端协议TELNET</h2><h2 id="6-4-万维网WWW"><a href="#6-4-万维网WWW" class="headerlink" title="6.4  万维网WWW"></a>6.4  万维网WWW</h2><h3 id="6-4-1-万维网概述"><a href="#6-4-1-万维网概述" class="headerlink" title="6.4.1 万维网概述"></a>6.4.1 万维网概述</h3><h3 id="6-4-2-统一资源定位符URL"><a href="#6-4-2-统一资源定位符URL" class="headerlink" title="6.4.2 统一资源定位符URL"></a>6.4.2 统一资源定位符URL</h3><h3 id="6-4-3-超文本传送协议HTTP"><a href="#6-4-3-超文本传送协议HTTP" class="headerlink" title="6.4.3 超文本传送协议HTTP"></a>6.4.3 超文本传送协议HTTP</h3><h3 id="6-4-4-万维网的文档"><a href="#6-4-4-万维网的文档" class="headerlink" title="6.4.4 万维网的文档"></a>6.4.4 万维网的文档</h3><h3 id="6-4-5-万维网的信息检索系统"><a href="#6-4-5-万维网的信息检索系统" class="headerlink" title="6.4.5 万维网的信息检索系统"></a>6.4.5 万维网的信息检索系统</h3><h3 id="6-4-6-博客和微博"><a href="#6-4-6-博客和微博" class="headerlink" title="6.4.6 博客和微博"></a>6.4.6 博客和微博</h3><h3 id="6-4-7-社交网络"><a href="#6-4-7-社交网络" class="headerlink" title="6.4.7 社交网络"></a>6.4.7 社交网络</h3><h2 id="6-5-电子邮件"><a href="#6-5-电子邮件" class="headerlink" title="6.5 电子邮件"></a>6.5 电子邮件</h2><h3 id="6-5-1-电子邮件概述"><a href="#6-5-1-电子邮件概述" class="headerlink" title="6.5.1 电子邮件概述"></a>6.5.1 电子邮件概述</h3><h3 id="6-5-2-简单邮件传送协议SMTP"><a href="#6-5-2-简单邮件传送协议SMTP" class="headerlink" title="6.5.2 简单邮件传送协议SMTP"></a>6.5.2 简单邮件传送协议SMTP</h3><h3 id="6-5-3-电子邮件的信息格式"><a href="#6-5-3-电子邮件的信息格式" class="headerlink" title="6.5.3 电子邮件的信息格式"></a>6.5.3 电子邮件的信息格式</h3><h3 id="6-5-4-邮件读取协议POP3和IMAP"><a href="#6-5-4-邮件读取协议POP3和IMAP" class="headerlink" title="6.5.4 邮件读取协议POP3和IMAP"></a>6.5.4 邮件读取协议POP3和IMAP</h3><h3 id="6-5-5-基于万维网的电子邮件"><a href="#6-5-5-基于万维网的电子邮件" class="headerlink" title="6.5.5 基于万维网的电子邮件"></a>6.5.5 基于万维网的电子邮件</h3><h3 id="6-5-6-通用互联网邮件扩充MIME"><a href="#6-5-6-通用互联网邮件扩充MIME" class="headerlink" title="6.5.6 通用互联网邮件扩充MIME"></a>6.5.6 通用互联网邮件扩充MIME</h3><h2 id="6-6-动态主机配置协议DHCP"><a href="#6-6-动态主机配置协议DHCP" class="headerlink" title="6.6 动态主机配置协议DHCP"></a>6.6 动态主机配置协议DHCP</h2><h2 id="6-7-简单网路管理协议SNMP"><a href="#6-7-简单网路管理协议SNMP" class="headerlink" title="6.7 简单网路管理协议SNMP"></a>6.7 简单网路管理协议SNMP</h2><h3 id="6-7-1-网络管理的基本概念"><a href="#6-7-1-网络管理的基本概念" class="headerlink" title="6.7.1 网络管理的基本概念"></a>6.7.1 网络管理的基本概念</h3><h3 id="6-7-2-管理信息结构SMI"><a href="#6-7-2-管理信息结构SMI" class="headerlink" title="6.7.2 管理信息结构SMI"></a>6.7.2 管理信息结构SMI</h3><h3 id="6-7-3-管理信息库MIB"><a href="#6-7-3-管理信息库MIB" class="headerlink" title="6.7.3 管理信息库MIB"></a>6.7.3 管理信息库MIB</h3><h3 id="6-7-4-SNMP的协议数据单元和报文"><a href="#6-7-4-SNMP的协议数据单元和报文" class="headerlink" title="6.7.4 SNMP的协议数据单元和报文"></a>6.7.4 SNMP的协议数据单元和报文</h3><h2 id="6-8-应用进程跨越网络的通信"><a href="#6-8-应用进程跨越网络的通信" class="headerlink" title="6.8 应用进程跨越网络的通信"></a>6.8 应用进程跨越网络的通信</h2><h3 id="6-8-1-系统调用和应用编程接口"><a href="#6-8-1-系统调用和应用编程接口" class="headerlink" title="6.8.1 系统调用和应用编程接口"></a>6.8.1 系统调用和应用编程接口</h3><h3 id="6-8-2-几种常用的系统调用"><a href="#6-8-2-几种常用的系统调用" class="headerlink" title="6.8.2 几种常用的系统调用"></a>6.8.2 几种常用的系统调用</h3><h2 id="6-9-P2P应用"><a href="#6-9-P2P应用" class="headerlink" title="6.9 P2P应用"></a>6.9 P2P应用</h2><h3 id="6-9-1-具有集中目录服务器的P2P工作方式"><a href="#6-9-1-具有集中目录服务器的P2P工作方式" class="headerlink" title="6.9.1 具有集中目录服务器的P2P工作方式"></a>6.9.1 具有集中目录服务器的P2P工作方式</h3><h3 id="6-9-2-具有全分布式结构的P2P文件工作程序"><a href="#6-9-2-具有全分布式结构的P2P文件工作程序" class="headerlink" title="6.9.2 具有全分布式结构的P2P文件工作程序"></a>6.9.2 具有全分布式结构的P2P文件工作程序</h3><h3 id="6-9-3-P2P文件分发的分析"><a href="#6-9-3-P2P文件分发的分析" class="headerlink" title="6.9.3 P2P文件分发的分析"></a>6.9.3 P2P文件分发的分析</h3><h3 id="6-9-4-在P2P对等方中搜索对象"><a href="#6-9-4-在P2P对等方中搜索对象" class="headerlink" title="6.9.4 在P2P对等方中搜索对象"></a>6.9.4 在P2P对等方中搜索对象</h3><h1 id="第七章-网络安全"><a href="#第七章-网络安全" class="headerlink" title="第七章 网络安全"></a>第七章 网络安全</h1><h2 id="7-1-网络安全问题概述"><a href="#7-1-网络安全问题概述" class="headerlink" title="7.1 网络安全问题概述"></a>7.1 网络安全问题概述</h2><h3 id="7-1-1-计算机网络面临的安全性威胁"><a href="#7-1-1-计算机网络面临的安全性威胁" class="headerlink" title="7.1.1 计算机网络面临的安全性威胁"></a>7.1.1 计算机网络面临的安全性威胁</h3><h3 id="7-1-2-安全的计算机网络"><a href="#7-1-2-安全的计算机网络" class="headerlink" title="7.1.2 安全的计算机网络"></a>7.1.2 安全的计算机网络</h3><h3 id="7-1-3-数据加密模型"><a href="#7-1-3-数据加密模型" class="headerlink" title="7.1.3 数据加密模型"></a>7.1.3 数据加密模型</h3><h2 id="7-2-两类密码体制"><a href="#7-2-两类密码体制" class="headerlink" title="7.2 两类密码体制"></a>7.2 两类密码体制</h2><h3 id="7-2-1-对称密钥密码体制"><a href="#7-2-1-对称密钥密码体制" class="headerlink" title="7.2.1 对称密钥密码体制"></a>7.2.1 对称密钥密码体制</h3><h3 id="7-2-2-公钥密码体制"><a href="#7-2-2-公钥密码体制" class="headerlink" title="7.2.2 公钥密码体制"></a>7.2.2 公钥密码体制</h3><h2 id="7-3-数字签名"><a href="#7-3-数字签名" class="headerlink" title="7.3 数字签名"></a>7.3 数字签名</h2><h2 id="7-4-鉴别"><a href="#7-4-鉴别" class="headerlink" title="7.4 鉴别"></a>7.4 鉴别</h2><h3 id="7-4-1-报文鉴别"><a href="#7-4-1-报文鉴别" class="headerlink" title="7.4.1 报文鉴别"></a>7.4.1 报文鉴别</h3><h3 id="7-4-2-实体鉴别"><a href="#7-4-2-实体鉴别" class="headerlink" title="7.4.2 实体鉴别"></a>7.4.2 实体鉴别</h3><h2 id="7-5-密钥分配"><a href="#7-5-密钥分配" class="headerlink" title="7.5 密钥分配"></a>7.5 密钥分配</h2><h3 id="7-5-1-对称密钥的分配"><a href="#7-5-1-对称密钥的分配" class="headerlink" title="7.5.1 对称密钥的分配"></a>7.5.1 对称密钥的分配</h3><h3 id="7-5-2-公钥的分配"><a href="#7-5-2-公钥的分配" class="headerlink" title="7.5.2 公钥的分配"></a>7.5.2 公钥的分配</h3><h2 id="7-6-互联网使用的安全协议"><a href="#7-6-互联网使用的安全协议" class="headerlink" title="7.6 互联网使用的安全协议"></a>7.6 互联网使用的安全协议</h2><h3 id="7-6-1-网络层安全协议"><a href="#7-6-1-网络层安全协议" class="headerlink" title="7.6.1 网络层安全协议"></a>7.6.1 网络层安全协议</h3><h3 id="7-6-2-运输层安全协议"><a href="#7-6-2-运输层安全协议" class="headerlink" title="7.6.2 运输层安全协议"></a>7.6.2 运输层安全协议</h3><h3 id="7-6-3-应用层安全协议"><a href="#7-6-3-应用层安全协议" class="headerlink" title="7.6.3 应用层安全协议"></a>7.6.3 应用层安全协议</h3><h2 id="7-7-系统安全：防火墙与入侵检测"><a href="#7-7-系统安全：防火墙与入侵检测" class="headerlink" title="7.7 系统安全：防火墙与入侵检测"></a>7.7 系统安全：防火墙与入侵检测</h2><h3 id="7-7-1-防火墙"><a href="#7-7-1-防火墙" class="headerlink" title="7.7.1 防火墙"></a>7.7.1 防火墙</h3><h3 id="7-7-2-入侵检测系统"><a href="#7-7-2-入侵检测系统" class="headerlink" title="7.7.2 入侵检测系统"></a>7.7.2 入侵检测系统</h3><h2 id="7-8-一些未来的发展方向"><a href="#7-8-一些未来的发展方向" class="headerlink" title="7.8 一些未来的发展方向"></a>7.8 一些未来的发展方向</h2><h1 id="第八章-互联网上的音频-视频服务"><a href="#第八章-互联网上的音频-视频服务" class="headerlink" title="第八章 互联网上的音频/视频服务"></a>第八章 互联网上的音频/视频服务</h1><h2 id="8-1-概述"><a href="#8-1-概述" class="headerlink" title="8.1 概述"></a>8.1 概述</h2><h2 id="8-2-流式存储音频-视频"><a href="#8-2-流式存储音频-视频" class="headerlink" title="8.2 流式存储音频/视频"></a>8.2 流式存储音频/视频</h2><h3 id="8-2-1-具有元文件的万维网服务器"><a href="#8-2-1-具有元文件的万维网服务器" class="headerlink" title="8.2.1 具有元文件的万维网服务器"></a>8.2.1 具有元文件的万维网服务器</h3><h3 id="8-2-2-媒体服务器"><a href="#8-2-2-媒体服务器" class="headerlink" title="8.2.2 媒体服务器"></a>8.2.2 媒体服务器</h3><h3 id="8-2-3-实时流式协议RTSP"><a href="#8-2-3-实时流式协议RTSP" class="headerlink" title="8.2.3 实时流式协议RTSP"></a>8.2.3 实时流式协议RTSP</h3><h2 id="8-3-交互式音频-视频"><a href="#8-3-交互式音频-视频" class="headerlink" title="8.3 交互式音频/视频"></a>8.3 交互式音频/视频</h2><h3 id="8-3-1-IP电话概述"><a href="#8-3-1-IP电话概述" class="headerlink" title="8.3.1 IP电话概述"></a>8.3.1 IP电话概述</h3><h3 id="8-3-2-IP电话所需要的几种应用协议"><a href="#8-3-2-IP电话所需要的几种应用协议" class="headerlink" title="8.3.2 IP电话所需要的几种应用协议"></a>8.3.2 IP电话所需要的几种应用协议</h3><h3 id="8-3-3-实时运输协议RTP"><a href="#8-3-3-实时运输协议RTP" class="headerlink" title="8.3.3 实时运输协议RTP"></a>8.3.3 实时运输协议RTP</h3><h3 id="8-3-4-实时运输控制协议RTCP"><a href="#8-3-4-实时运输控制协议RTCP" class="headerlink" title="8.3.4 实时运输控制协议RTCP"></a>8.3.4 实时运输控制协议RTCP</h3><h3 id="8-3-5-H-323"><a href="#8-3-5-H-323" class="headerlink" title="8.3.5 H.323"></a>8.3.5 H.323</h3><h3 id="8-3-6-会话发起协议SIP"><a href="#8-3-6-会话发起协议SIP" class="headerlink" title="8.3.6 会话发起协议SIP"></a>8.3.6 会话发起协议SIP</h3><h2 id="8-4-改进“尽最大努力交付”的服务"><a href="#8-4-改进“尽最大努力交付”的服务" class="headerlink" title="8.4 改进“尽最大努力交付”的服务"></a>8.4 改进“尽最大努力交付”的服务</h2><h3 id="8-4-1-使互联网提供服务质量"><a href="#8-4-1-使互联网提供服务质量" class="headerlink" title="8.4.1 使互联网提供服务质量"></a>8.4.1 使互联网提供服务质量</h3><h3 id="8-4-2-调度和管制机制"><a href="#8-4-2-调度和管制机制" class="headerlink" title="8.4.2 调度和管制机制"></a>8.4.2 调度和管制机制</h3><h3 id="8-4-3-综合服务IntServ与资源预留协议RSVP"><a href="#8-4-3-综合服务IntServ与资源预留协议RSVP" class="headerlink" title="8.4.3 综合服务IntServ与资源预留协议RSVP"></a>8.4.3 综合服务IntServ与资源预留协议RSVP</h3><h3 id="8-4-4-区分服务DiffServ"><a href="#8-4-4-区分服务DiffServ" class="headerlink" title="8.4.4 区分服务DiffServ"></a>8.4.4 区分服务DiffServ</h3><h1 id="第九章-无线网络和移动网络"><a href="#第九章-无线网络和移动网络" class="headerlink" title="第九章 无线网络和移动网络"></a>第九章 无线网络和移动网络</h1><h2 id="9-1-无线局域网WLAN"><a href="#9-1-无线局域网WLAN" class="headerlink" title="9.1 无线局域网WLAN"></a>9.1 无线局域网WLAN</h2><h3 id="9-1-1-无线局域网的组成"><a href="#9-1-1-无线局域网的组成" class="headerlink" title="9.1.1 无线局域网的组成"></a>9.1.1 无线局域网的组成</h3><h3 id="9-1-2-802-11局域网的物理层"><a href="#9-1-2-802-11局域网的物理层" class="headerlink" title="9.1.2 802.11局域网的物理层"></a>9.1.2 802.11局域网的物理层</h3><h3 id="9-1-3-802-11局域网的MAC层协议"><a href="#9-1-3-802-11局域网的MAC层协议" class="headerlink" title="9.1.3 802.11局域网的MAC层协议"></a>9.1.3 802.11局域网的MAC层协议</h3><h3 id="9-1-4-802-11局域网的MAC帧"><a href="#9-1-4-802-11局域网的MAC帧" class="headerlink" title="9.1.4 802.11局域网的MAC帧"></a>9.1.4 802.11局域网的MAC帧</h3><h2 id="9-2-无线个人局域网WPAN"><a href="#9-2-无线个人局域网WPAN" class="headerlink" title="9.2 无线个人局域网WPAN"></a>9.2 无线个人局域网WPAN</h2><h2 id="9-3-无线城域网WMAN"><a href="#9-3-无线城域网WMAN" class="headerlink" title="9.3 无线城域网WMAN"></a>9.3 无线城域网WMAN</h2><h2 id="9-4-蜂窝移动通信网"><a href="#9-4-蜂窝移动通信网" class="headerlink" title="9.4 蜂窝移动通信网"></a>9.4 蜂窝移动通信网</h2><h3 id="9-4-1-蜂窝无线通信技术简介"><a href="#9-4-1-蜂窝无线通信技术简介" class="headerlink" title="9.4.1 蜂窝无线通信技术简介"></a>9.4.1 蜂窝无线通信技术简介</h3><h3 id="9-4-2-移动IP"><a href="#9-4-2-移动IP" class="headerlink" title="9.4.2 移动IP"></a>9.4.2 移动IP</h3><h3 id="9-4-3-蜂窝移动通信网中对移动用户的路由选择"><a href="#9-4-3-蜂窝移动通信网中对移动用户的路由选择" class="headerlink" title="9.4.3 蜂窝移动通信网中对移动用户的路由选择"></a>9.4.3 蜂窝移动通信网中对移动用户的路由选择</h3><h3 id="9-4-4-GSM中的切换"><a href="#9-4-4-GSM中的切换" class="headerlink" title="9.4.4 GSM中的切换"></a>9.4.4 GSM中的切换</h3><h3 id="9-4-5-无线网络对高层协议的影响"><a href="#9-4-5-无线网络对高层协议的影响" class="headerlink" title="9.4.5 无线网络对高层协议的影响"></a>9.4.5 无线网络对高层协议的影响</h3><h2 id="9-5-两种不同的无线上网"><a href="#9-5-两种不同的无线上网" class="headerlink" title="9.5 两种不同的无线上网"></a>9.5 两种不同的无线上网</h2>
+    </div>
+
+    
+    
+    
+
+    
+      <div>
+        <div>
+  
+    <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+      <span>-------- 本文结束 </span>
+      <i class="fa fa-paw"></i>
+      <span> 感谢阅读 --------</span>
+    </div>
+  
+</div>
+      </div>
+   
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\12\06\TCP-IP详解（卷1：协议）\" rel="bookmark">《TCP/IP详解（卷1：协议）》全书知识梳理</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\10\31\《计算机网络：自顶向下方法（原书第六版）》学习笔记（第一章-概论）\" rel="bookmark">《计算机网络：自顶向下方法（原书第六版）》全书知识梳理复习笔记</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\11\01\重庆邮电大学2021年硕士研究生计算机类入学考试大纲解析\" rel="bookmark">重庆邮电大学2021年硕士研究生入学考试大纲解析笔记知识整理</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\11\01\计算机网络名词英文缩写解释\" rel="bookmark">计算机网络名词英文缩写解释</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\10\25\《计算机网络》复习笔记\" rel="bookmark">《计算机网络》复习笔记</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>觉得文章写的不错的话，请我吃包辣条吧！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="AllenChen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="AllenChen 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+
+<!-- JS库 clipboard 拷贝内容到粘贴板-->
+<script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+
+<!-- JS库 sweetalert 显示提示信息-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<ul class="post-copyright">
+  <!-- 本文标题 -->
+  <li>
+    <strong>本文标题： </strong>
+    《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记
+  </li>
+
+  <!-- 本文作者 -->
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>
+    AllenChen
+  </li>
+
+  <!-- 创建时间 -->
+  <li>
+    <strong>创建时间： </strong>
+    2020年10月31日 - 00时10分
+  </li>
+
+  <!-- 修改时间 -->
+  <li>
+    <strong>修改时间： </strong>
+    2020年12月23日 - 23时12分
+  </li>
+
+  <!-- 引用链接 -->
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://allen-zc.github.io/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/" title="《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记"
+      >https://allen-zc.github.io/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/</a
+    >
+    <span class="copy-path" title="点击复制引用链接"
+      ><i
+        style="cursor: pointer"
+        class="fa fa-clipboard"
+        data-clipboard-text="[AllenChen's Blog | 《计算机网络（谢希仁 第七版）学习笔记》全书知识梳理复习笔记](https://allen-zc.github.io/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8B/)"
+        aria-label="复制成功"
+      ></i
+    ></span>
+  </li>
+
+  <!-- 版权声明 -->
+  <li class="post-copyright-license">
+    <strong
+      >版权声明：
+    </strong>
+    本博客所有文章除特别声明外，均采用 undefined 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+<script>
+  var clipboard = new ClipboardJS(".fa-clipboard");
+  clipboard.on("success", function(target) {
+    var message = document.createElement("div");
+    message.innerHTML =
+      '<i class="fa fa-check-circle message-icon"></i><span class="message-content">' +
+      target.trigger.getAttribute("aria-label") +
+      "</span>";
+    swal({
+      content: message,
+      className: "copy-success-message",
+      timer: 1000,
+      button: false
+    });
+  });
+</script>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              
+              <a href="/tags/computer-networks/" rel="tag"><i class="fa fa-tags"></i> computer-networks</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/31/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9A%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC%E5%85%AD%E7%89%88%EF%BC%89%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%AE%BA%EF%BC%89/" rel="prev" title="《计算机网络：自顶向下方法（原书第六版）》全书知识梳理复习笔记">
+      <i class="fa fa-chevron-left"></i> 《计算机网络：自顶向下方法（原书第六版）》全书知识梳理复习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/01/%E9%87%8D%E5%BA%86%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A62021%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B1%BB%E5%85%A5%E5%AD%A6%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B2%E8%A7%A3%E6%9E%90/" rel="next" title="重庆邮电大学2021年硕士研究生入学考试大纲解析笔记知识整理">
+      重庆邮电大学2021年硕士研究生入学考试大纲解析笔记知识整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+      
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%AC%E4%B8%83%E7%89%88%EF%BC%89%E3%80%8B%E5%85%A8%E4%B9%A6%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-text">《计算机网络（谢希仁 第七版）》全书知识梳理复习笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E4%B9%A6%E7%9B%AE%E5%BD%95"><span class="nav-text">本书目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0"><span class="nav-text">第一章 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9C%A8%E4%BF%A1%E6%81%AF%E6%97%B6%E4%BB%A3%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">1.1 计算机网络在信息时代中的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E4%BA%92%E8%81%94%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="nav-text">1.2 互联网概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="nav-text">1.2.1 网络中的网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E4%BA%92%E8%81%94%E7%BD%91%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84%E5%8F%91%E5%B1%95%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-text">1.2.2 互联网基础结构发展的三个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96%E5%B7%A5%E4%BD%9C"><span class="nav-text">1.2.3 互联网的标准化工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-text">1.3 互联网的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E8%BE%B9%E7%BC%98%E9%83%A8%E5%88%86"><span class="nav-text">1.3.1 互联网的边缘部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E6%A0%B8%E5%BF%83%E9%83%A8%E5%88%86"><span class="nav-text">1.3.2 互联网的核心部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9C%A8%E6%88%91%E5%9B%BD%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-text">1.4 计算机网络在我国的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%B1%BB%E5%88%AB"><span class="nav-text">1.5 计算机网络的类别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">1.5.1 计算机网络的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-%E5%87%A0%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%88%AB%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-text">1.5.2 几种不同类别的计算机网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD"><span class="nav-text">1.6 计算机网络的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-text">1.6.1 计算机网络的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E9%9D%9E%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-text">1.6.2 计算机网络的非性能指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.7 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%A2%E6%88%90"><span class="nav-text">1.7.1 计算机网络体系结构的形成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-2-%E5%8D%8F%E8%AE%AE%E4%B8%8E%E5%88%92%E5%88%86%E5%B1%82%E6%AC%A1"><span class="nav-text">1.7.2 协议与划分层次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-3-%E5%85%B7%E6%9C%89%E4%BA%94%E5%B1%82%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.7.3 具有五层协议的体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-4-%E5%AE%9E%E4%BD%93%E3%80%81%E5%8D%8F%E8%AE%AE%E3%80%81%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%AE%BF%E9%97%AE%E7%82%B9"><span class="nav-text">1.7.4 实体、协议、服务和服务访问点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-5-TCP-IP%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.7.5 TCP&#x2F;IP的体系结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-text">第二章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.1 物理层的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-text">2.2 数据通信的基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.1 数据通信系统的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E6%9C%89%E5%85%B3%E4%BF%A1%E9%81%93%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.2.2 有关信道的几个基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F"><span class="nav-text">2.2.3 信道的极限容量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="nav-text">2.3 物理层下面的传输媒体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="nav-text">2.3.1 导引型传输媒体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-%E9%9D%9E%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="nav-text">2.3.2 非导引型传输媒体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="nav-text">2.4 信道复用技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-%E9%A2%91%E5%88%86%E5%A4%8D%E7%94%A8%E3%80%81%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8%E5%92%8C%E7%BB%9F%E8%AE%A1%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8"><span class="nav-text">2.4.1 频分复用、时分复用和统计时分复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-%E6%B3%A2%E5%88%86%E5%A4%8D%E7%94%A8"><span class="nav-text">2.4.2 波分复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8"><span class="nav-text">2.4.3 码分复用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93%E7%B3%BB%E7%BB%9F"><span class="nav-text">2.5 数字传输系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-%E5%AE%BD%E5%B8%A6%E6%8E%A5%E5%85%A5%E6%8A%80%E6%9C%AF"><span class="nav-text">2.6 宽带接入技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-1-ADSL%E6%8A%80%E6%9C%AF"><span class="nav-text">2.6.1 ADSL技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-2-%E5%85%89%E7%BA%A4%E5%90%8C%E8%BD%B4%E6%B7%B7%E5%90%88%E7%BD%91%EF%BC%88HFC%E7%BD%91%EF%BC%89"><span class="nav-text">2.6.2 光纤同轴混合网（HFC网）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FTTx-%E6%8A%80%E6%9C%AF"><span class="nav-text">FTTx 技术</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-text">第三章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-text">3.1 使用点对点信道的数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%92%8C%E5%B8%A7"><span class="nav-text">3.1.1 数据链路和帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="nav-text">3.1.2 三个基本问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AEPPP"><span class="nav-text">3.2 点对点协议PPP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-PPP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">3.2.1 PPP协议的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-PPP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-text">3.2.2 PPP协议的帧格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-PPP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-text">3.2.3 PPP协议的工作状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E4%BD%BF%E7%94%A8%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-text">3.3 使用广播信道的数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-text">3.3.1 局域网的数据链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-CSMA-CD%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.3.2 CSMA&#x2F;CD协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-%E4%BD%BF%E7%94%A8%E9%9B%86%E7%BA%BF%E5%99%A8%E7%9A%84%E6%98%9F%E5%9E%8B%E6%8B%93%E6%89%91"><span class="nav-text">3.3.3 使用集线器的星型拓扑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4-%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-text">3.3.4 以太网的信道利用率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5-%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84MAC%E5%B1%82"><span class="nav-text">3.3.5 以太网的MAC层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E6%89%A9%E5%B1%95%E7%9A%84%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.4 扩展的以太网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-1-%E5%9C%A8%E7%89%A9%E7%90%86%E5%B1%82%E6%89%A9%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.4.1 在物理层扩展以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-2-%E5%9C%A8%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%89%A9%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.4.2 在数据链路层扩展以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-3-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="nav-text">3.4.3 虚拟局域网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E9%AB%98%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.5 高速以太网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-1-100BASE-T%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.5.1 100BASE-T以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-2-%E5%90%89%E6%AF%94%E7%89%B9%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.5.2 吉比特以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-3-10%E5%90%89%E6%AF%94%E7%89%B9%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%8810GE%EF%BC%89%E5%92%8C%E6%9B%B4%E5%BF%AB%E7%9A%84%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-text">3.5.3 10吉比特以太网（10GE）和更快的以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-4-%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%A4%AA%E7%BD%91%E8%BF%9B%E8%A1%8C%E5%AE%BD%E5%B8%A6%E6%8E%A5%E5%85%A5"><span class="nav-text">3.5.4 使用以太网进行宽带接入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-text">第四章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="nav-text">4.1 网络层提供的两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP"><span class="nav-text">4.2 网际协议IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-%E8%99%9A%E6%8B%9F%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C"><span class="nav-text">4.2.1 虚拟互连网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-%E5%88%86%E7%B1%BB%E7%9A%84IP%E5%9C%B0%E5%9D%80"><span class="nav-text">4.2.2 分类的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-IP%E5%9C%B0%E5%9D%80%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80"><span class="nav-text">4.2.3 IP地址与硬件地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AEARP"><span class="nav-text">4.2.4 地址解析协议ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-5-IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-text">4.2.5 IP数据报的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-6-IP%E5%B1%82%E8%BD%AC%E5%8F%91%E5%88%86%E7%BB%84%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-text">4.2.6 IP层转发分组的流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E5%92%8C%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91"><span class="nav-text">4.3 划分子网和构造超网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-%E5%88%92%E5%88%86%E5%AD%90%E9%98%BF%E6%97%BA"><span class="nav-text">4.3.1 划分子阿旺</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-%E4%BD%BF%E7%94%A8%E5%AD%90%E7%BD%91%E6%97%B6%E5%88%86%E7%BB%84%E7%9A%84%E8%BD%AC%E5%8F%91"><span class="nav-text">4.3.2 使用子网时分组的转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-3-%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80CIDR%EF%BC%88%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91%EF%BC%89"><span class="nav-text">4.3.3 无分类编址CIDR（构造超网）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AEICMP"><span class="nav-text">4.4 网际控制报文协议ICMP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-ICMP%E6%8A%A5%E6%96%87%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-text">4.4.1 ICMP报文的种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-2-ICMP%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-text">4.4.2 ICMP的应用举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="nav-text">4.5 互联网的路由选择协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-1-%E6%9C%89%E5%85%B3%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%AD%A6%E5%8C%BB%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">4.5.1 有关路由选择学医的几个基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-2-%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AERIP"><span class="nav-text">4.5.2 内部网关协议RIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-3-%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AEOSPF"><span class="nav-text">4.5.3 内部网关协议OSPF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-4-%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AEBGP"><span class="nav-text">4.5.4 外部网关协议BGP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-5-%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">4.5.5 路由器的构成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-IPv6"><span class="nav-text">4.6 IPv6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-1-IPv6%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%A6%96%E9%83%A8"><span class="nav-text">4.6.1 IPv6的基本首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-2-IPv6%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="nav-text">4.6.2 IPv6的地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-3-%E4%BB%8EIPv4%E5%90%91IPv6%E8%BF%87%E6%B8%A1"><span class="nav-text">4.6.3 从IPv4向IPv6过渡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-4-ICMPv6"><span class="nav-text">4.6.4 ICMPv6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-IP%E5%A4%9A%E6%92%AD"><span class="nav-text">4.7 IP多播</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-1-IP%E5%A4%9A%E6%92%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">4.7.1 IP多播的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-2-%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%8A%E8%BF%9B%E8%A1%8C%E7%A1%AC%E4%BB%B6%E5%A4%9A%E6%92%AD"><span class="nav-text">4.7.2 在局域网上进行硬件多播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-3-%E7%BD%91%E9%99%85%E7%BB%84%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AEIGMP%E5%92%8C%E5%A4%9A%E6%92%AD%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="nav-text">4.7.3 网际组管理协议IGMP和多播路由选择协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91VPN%E5%92%8C%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2NAT"><span class="nav-text">4.8 虚拟专用网VPN和网络地址转换NAT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-1-%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91VPN"><span class="nav-text">4.8.1 虚拟专用网VPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-2-%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2NAT"><span class="nav-text">4.8.2 网络地址转换NAT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-%E5%A4%9A%E5%8D%8F%E8%AE%AE%E6%A0%87%E8%AE%B0%E4%BA%A4%E6%8D%A2MPLS"><span class="nav-text">4.9 多协议标记交换MPLS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-1-MPLS%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">4.9.1 MPLS的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-2-MPLS%E9%A6%96%E9%83%A8%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%A0%BC%E5%BC%8F"><span class="nav-text">4.9.2 MPLS首部的位置与格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-text">第五章 运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E8%BF%90%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">5.1 运输层协议概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-text">5.1.1 进程之间的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-%E8%BF%90%E8%BE%93%E5%B1%82%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%B8%BB%E8%A6%81%E5%8D%8F%E8%AE%AE"><span class="nav-text">5.1.2 运输层的两个主要协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E8%BF%90%E8%BE%93%E5%B1%82%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="nav-text">5.1.3 运输层的端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AEUDP"><span class="nav-text">5.2 用户数据报协议UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-UDP%E6%A6%82%E8%BF%B0"><span class="nav-text">5.2.1 UDP概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-UDP%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="nav-text">5.2.2 UDP的首部格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AETCP%E6%A6%82%E8%BF%B0"><span class="nav-text">5.3 传输控制协议TCP概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-1-TCP%E6%9C%80%E4%B8%BB%E8%A6%81%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">5.3.1 TCP最主要的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-2-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-text">5.3.2 TCP的连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">5.4 可靠传输的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-1-%E5%81%9C%E6%AD%A2%E7%AD%89%E5%BE%85%E5%8D%8F%E8%AE%AE"><span class="nav-text">5.4.1 停止等待协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-2-%E8%BF%9E%E7%BB%ADARQ%E5%8D%8F%E8%AE%AE"><span class="nav-text">5.4.2 连续ARQ协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-TCP%E6%8A%A5%E6%96%87%E6%AE%B5%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="nav-text">5.5 TCP报文段的首部格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">5.6 TCP可靠传输的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-1-%E4%BB%A5%E5%AD%97%E8%8A%82%E4%B8%BA%E5%8D%95%E4%BD%8D%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-text">5.6.1 以字节为单位的滑动窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-2-%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%97%B6%E9%97%B4%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">5.6.2 超时重传时间的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-3-%E9%80%89%E6%8B%A9%E7%A1%AE%E8%AE%A4SACK"><span class="nav-text">5.6.3 选择确认SACK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-TCP%E7%9A%84%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-text">5.7 TCP的流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-1-%E5%88%A9%E7%94%A8%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-text">5.7.1 利用滑动窗口实现流量控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-2-TCP%E7%9A%84%E4%BC%A0%E8%BE%93%E6%95%88%E7%8E%87"><span class="nav-text">5.7.2 TCP的传输效率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-TCP%E7%9A%84%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-text">5.8 TCP的拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-1-%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%9A%84%E4%B8%80%E8%88%AC%E5%8E%9F%E7%90%86"><span class="nav-text">5.8.1 拥塞控制的一般原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-2-TCP%E7%9A%84%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">5.8.2 TCP的拥塞控制方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-3-%E4%B8%BB%E5%8A%A8%E9%98%9F%E5%88%97%E7%AE%A1%E7%90%86AQM"><span class="nav-text">5.8.3 主动队列管理AQM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-9-TCP%E7%9A%84%E8%BF%90%E8%BE%93%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="nav-text">5.9 TCP的运输连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-1-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B"><span class="nav-text">5.9.1 TCP的连接建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-2-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5%E9%87%8A%E6%94%BE"><span class="nav-text">5.9.2 TCP的连接释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-3-TCP%E7%9A%84%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="nav-text">5.9.3 TCP的有限状态机</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-text">第六章 应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9FDNS"><span class="nav-text">6.1 域名系统DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="nav-text">6.1.1 域名系统概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E5%9F%9F%E5%90%8D%E7%BB%93%E6%9E%84"><span class="nav-text">6.1.2 互联网的域名结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-3-%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">6.1.3 域名服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AE"><span class="nav-text">6.2 文件传送协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-FTP%E6%A6%82%E8%BF%B0"><span class="nav-text">6.2.1 FTP概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-FTP%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">6.2.2 FTP的基本工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-3-%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AETFTP"><span class="nav-text">6.2.3 简单文件传送协议TFTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-%E8%BF%9C%E7%A8%8B%E7%BB%88%E7%AB%AF%E5%8D%8F%E8%AE%AETELNET"><span class="nav-text">6.3 远程终端协议TELNET</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-%E4%B8%87%E7%BB%B4%E7%BD%91WWW"><span class="nav-text">6.4  万维网WWW</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-1-%E4%B8%87%E7%BB%B4%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="nav-text">6.4.1 万维网概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-2-%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6URL"><span class="nav-text">6.4.2 统一资源定位符URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-3-%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AEHTTP"><span class="nav-text">6.4.3 超文本传送协议HTTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-4-%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E6%96%87%E6%A1%A3"><span class="nav-text">6.4.4 万维网的文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-5-%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2%E7%B3%BB%E7%BB%9F"><span class="nav-text">6.4.5 万维网的信息检索系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-6-%E5%8D%9A%E5%AE%A2%E5%92%8C%E5%BE%AE%E5%8D%9A"><span class="nav-text">6.4.6 博客和微博</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-7-%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C"><span class="nav-text">6.4.7 社交网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="nav-text">6.5 电子邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-1-%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E6%A6%82%E8%BF%B0"><span class="nav-text">6.5.1 电子邮件概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-2-%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AESMTP"><span class="nav-text">6.5.2 简单邮件传送协议SMTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-3-%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%9A%84%E4%BF%A1%E6%81%AF%E6%A0%BC%E5%BC%8F"><span class="nav-text">6.5.3 电子邮件的信息格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-4-%E9%82%AE%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%8D%8F%E8%AE%AEPOP3%E5%92%8CIMAP"><span class="nav-text">6.5.4 邮件读取协议POP3和IMAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-5-%E5%9F%BA%E4%BA%8E%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="nav-text">6.5.5 基于万维网的电子邮件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-6-%E9%80%9A%E7%94%A8%E4%BA%92%E8%81%94%E7%BD%91%E9%82%AE%E4%BB%B6%E6%89%A9%E5%85%85MIME"><span class="nav-text">6.5.6 通用互联网邮件扩充MIME</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6-%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AEDHCP"><span class="nav-text">6.6 动态主机配置协议DHCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-7-%E7%AE%80%E5%8D%95%E7%BD%91%E8%B7%AF%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AESNMP"><span class="nav-text">6.7 简单网路管理协议SNMP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-1-%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">6.7.1 网络管理的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-2-%E7%AE%A1%E7%90%86%E4%BF%A1%E6%81%AF%E7%BB%93%E6%9E%84SMI"><span class="nav-text">6.7.2 管理信息结构SMI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-3-%E7%AE%A1%E7%90%86%E4%BF%A1%E6%81%AF%E5%BA%93MIB"><span class="nav-text">6.7.3 管理信息库MIB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-4-SNMP%E7%9A%84%E5%8D%8F%E8%AE%AE%E6%95%B0%E6%8D%AE%E5%8D%95%E5%85%83%E5%92%8C%E6%8A%A5%E6%96%87"><span class="nav-text">6.7.4 SNMP的协议数据单元和报文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-8-%E5%BA%94%E7%94%A8%E8%BF%9B%E7%A8%8B%E8%B7%A8%E8%B6%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-text">6.8 应用进程跨越网络的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-1-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3"><span class="nav-text">6.8.1 系统调用和应用编程接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-2-%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-text">6.8.2 几种常用的系统调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-9-P2P%E5%BA%94%E7%94%A8"><span class="nav-text">6.9 P2P应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-1-%E5%85%B7%E6%9C%89%E9%9B%86%E4%B8%AD%E7%9B%AE%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84P2P%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="nav-text">6.9.1 具有集中目录服务器的P2P工作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-2-%E5%85%B7%E6%9C%89%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%93%E6%9E%84%E7%9A%84P2P%E6%96%87%E4%BB%B6%E5%B7%A5%E4%BD%9C%E7%A8%8B%E5%BA%8F"><span class="nav-text">6.9.2 具有全分布式结构的P2P文件工作程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-3-P2P%E6%96%87%E4%BB%B6%E5%88%86%E5%8F%91%E7%9A%84%E5%88%86%E6%9E%90"><span class="nav-text">6.9.3 P2P文件分发的分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-4-%E5%9C%A8P2P%E5%AF%B9%E7%AD%89%E6%96%B9%E4%B8%AD%E6%90%9C%E7%B4%A2%E5%AF%B9%E8%B1%A1"><span class="nav-text">6.9.4 在P2P对等方中搜索对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="nav-text">第七章 网络安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0"><span class="nav-text">7.1 网络安全问题概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E4%B8%B4%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E5%A8%81%E8%83%81"><span class="nav-text">7.1.1 计算机网络面临的安全性威胁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-2-%E5%AE%89%E5%85%A8%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-text">7.1.2 安全的计算机网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-3-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%9E%8B"><span class="nav-text">7.1.3 数据加密模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E4%B8%A4%E7%B1%BB%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6"><span class="nav-text">7.2 两类密码体制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%E5%AF%B9%E7%A7%B0%E5%AF%86%E9%92%A5%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6"><span class="nav-text">7.2.1 对称密钥密码体制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6"><span class="nav-text">7.2.2 公钥密码体制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-text">7.3 数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%E9%89%B4%E5%88%AB"><span class="nav-text">7.4 鉴别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-1-%E6%8A%A5%E6%96%87%E9%89%B4%E5%88%AB"><span class="nav-text">7.4.1 报文鉴别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-2-%E5%AE%9E%E4%BD%93%E9%89%B4%E5%88%AB"><span class="nav-text">7.4.2 实体鉴别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%E5%AF%86%E9%92%A5%E5%88%86%E9%85%8D"><span class="nav-text">7.5 密钥分配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-1-%E5%AF%B9%E7%A7%B0%E5%AF%86%E9%92%A5%E7%9A%84%E5%88%86%E9%85%8D"><span class="nav-text">7.5.1 对称密钥的分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-2-%E5%85%AC%E9%92%A5%E7%9A%84%E5%88%86%E9%85%8D"><span class="nav-text">7.5.2 公钥的分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%E4%BA%92%E8%81%94%E7%BD%91%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="nav-text">7.6 互联网使用的安全协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-1-%E7%BD%91%E7%BB%9C%E5%B1%82%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="nav-text">7.6.1 网络层安全协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-2-%E8%BF%90%E8%BE%93%E5%B1%82%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="nav-text">7.6.2 运输层安全协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-3-%E5%BA%94%E7%94%A8%E5%B1%82%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="nav-text">7.6.3 应用层安全协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%EF%BC%9A%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B"><span class="nav-text">7.7 系统安全：防火墙与入侵检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-1-%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-text">7.7.1 防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-2-%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F"><span class="nav-text">7.7.2 入侵检测系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-8-%E4%B8%80%E4%BA%9B%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91"><span class="nav-text">7.8 一些未来的发展方向</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%8A%E7%9A%84%E9%9F%B3%E9%A2%91-%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1"><span class="nav-text">第八章 互联网上的音频&#x2F;视频服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-%E6%A6%82%E8%BF%B0"><span class="nav-text">8.1 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E6%B5%81%E5%BC%8F%E5%AD%98%E5%82%A8%E9%9F%B3%E9%A2%91-%E8%A7%86%E9%A2%91"><span class="nav-text">8.2 流式存储音频&#x2F;视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-1-%E5%85%B7%E6%9C%89%E5%85%83%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%87%E7%BB%B4%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">8.2.1 具有元文件的万维网服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-2-%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">8.2.2 媒体服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-%E5%AE%9E%E6%97%B6%E6%B5%81%E5%BC%8F%E5%8D%8F%E8%AE%AERTSP"><span class="nav-text">8.2.3 实时流式协议RTSP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-%E4%BA%A4%E4%BA%92%E5%BC%8F%E9%9F%B3%E9%A2%91-%E8%A7%86%E9%A2%91"><span class="nav-text">8.3 交互式音频&#x2F;视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-1-IP%E7%94%B5%E8%AF%9D%E6%A6%82%E8%BF%B0"><span class="nav-text">8.3.1 IP电话概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-2-IP%E7%94%B5%E8%AF%9D%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E5%87%A0%E7%A7%8D%E5%BA%94%E7%94%A8%E5%8D%8F%E8%AE%AE"><span class="nav-text">8.3.2 IP电话所需要的几种应用协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-3-%E5%AE%9E%E6%97%B6%E8%BF%90%E8%BE%93%E5%8D%8F%E8%AE%AERTP"><span class="nav-text">8.3.3 实时运输协议RTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-4-%E5%AE%9E%E6%97%B6%E8%BF%90%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AERTCP"><span class="nav-text">8.3.4 实时运输控制协议RTCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-5-H-323"><span class="nav-text">8.3.5 H.323</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-6-%E4%BC%9A%E8%AF%9D%E5%8F%91%E8%B5%B7%E5%8D%8F%E8%AE%AESIP"><span class="nav-text">8.3.6 会话发起协议SIP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-%E6%94%B9%E8%BF%9B%E2%80%9C%E5%B0%BD%E6%9C%80%E5%A4%A7%E5%8A%AA%E5%8A%9B%E4%BA%A4%E4%BB%98%E2%80%9D%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-text">8.4 改进“尽最大努力交付”的服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-1-%E4%BD%BF%E4%BA%92%E8%81%94%E7%BD%91%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F"><span class="nav-text">8.4.1 使互联网提供服务质量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-2-%E8%B0%83%E5%BA%A6%E5%92%8C%E7%AE%A1%E5%88%B6%E6%9C%BA%E5%88%B6"><span class="nav-text">8.4.2 调度和管制机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-3-%E7%BB%BC%E5%90%88%E6%9C%8D%E5%8A%A1IntServ%E4%B8%8E%E8%B5%84%E6%BA%90%E9%A2%84%E7%95%99%E5%8D%8F%E8%AE%AERSVP"><span class="nav-text">8.4.3 综合服务IntServ与资源预留协议RSVP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-4-%E5%8C%BA%E5%88%86%E6%9C%8D%E5%8A%A1DiffServ"><span class="nav-text">8.4.4 区分服务DiffServ</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%92%8C%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C"><span class="nav-text">第九章 无线网络和移动网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91WLAN"><span class="nav-text">9.1 无线局域网WLAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-1-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-text">9.1.1 无线局域网的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-2-802-11%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-text">9.1.2 802.11局域网的物理层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-3-802-11%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84MAC%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="nav-text">9.1.3 802.11局域网的MAC层协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-4-802-11%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84MAC%E5%B8%A7"><span class="nav-text">9.1.4 802.11局域网的MAC帧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-%E6%97%A0%E7%BA%BF%E4%B8%AA%E4%BA%BA%E5%B1%80%E5%9F%9F%E7%BD%91WPAN"><span class="nav-text">9.2 无线个人局域网WPAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-%E6%97%A0%E7%BA%BF%E5%9F%8E%E5%9F%9F%E7%BD%91WMAN"><span class="nav-text">9.3 无线城域网WMAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-%E8%9C%82%E7%AA%9D%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1%E7%BD%91"><span class="nav-text">9.4 蜂窝移动通信网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-1-%E8%9C%82%E7%AA%9D%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF%E7%AE%80%E4%BB%8B"><span class="nav-text">9.4.1 蜂窝无线通信技术简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-2-%E7%A7%BB%E5%8A%A8IP"><span class="nav-text">9.4.2 移动IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-3-%E8%9C%82%E7%AA%9D%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1%E7%BD%91%E4%B8%AD%E5%AF%B9%E7%A7%BB%E5%8A%A8%E7%94%A8%E6%88%B7%E7%9A%84%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="nav-text">9.4.3 蜂窝移动通信网中对移动用户的路由选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-4-GSM%E4%B8%AD%E7%9A%84%E5%88%87%E6%8D%A2"><span class="nav-text">9.4.4 GSM中的切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-5-%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%AF%B9%E9%AB%98%E5%B1%82%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">9.4.5 无线网络对高层协议的影响</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-5-%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E6%97%A0%E7%BA%BF%E4%B8%8A%E7%BD%91"><span class="nav-text">9.5 两种不同的无线上网</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AllenChen"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">AllenChen</p>
+  <div class="site-description" itemprop="description">Sometimes it's the very people who no one imagines angthing of who do the things that no one can imagine. <br> 有时候，正是那些谁也想不到的人，却做出了谁也想不到的事情。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    聊天
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FsbGVuLXpj" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Allen-zc"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vY2NfYWxsZW4=" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;cc_allen"><i class="fab fa-git fa-fw"></i>Gitee</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vdS80Mjk2NjllNjc5MTA=" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;429669e67910"><i class="fa fa-heartbeat fa-fw"></i>简书</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lJR0VfUHJvZ3JhbW1lcg==" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;YIGE_Programmer"><i class="fab fa-css3-alt fa-fw"></i>CSDN</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vdS9hbGxlbi16Y2hlbi8=" title="LeetCode → https:&#x2F;&#x2F;leetcode-cn.com&#x2F;u&#x2F;allen-zchen&#x2F;"><i class="fas fa-project-diagram fa-fw"></i>LeetCode</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1053831730@qq.com" title="E-Mail → 1053831730@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      推荐连接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cDovL3hpYW8teWl4aWFuZy5naXRlZS5pby8=" title="http:&#x2F;&#x2F;xiao-yixiang.gitee.io&#x2F;">友链 xiao-yixiang blog</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/" title="&#x2F;">博客主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/about" title="&#x2F;about">友情链接</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/reward/" title="&#x2F;reward&#x2F;">打赏记录</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <script
+  async
+  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AllenChen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">95k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:26</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class=""></i>
+      </span>
+      <span class="site-uv">
+        我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class=""></i>
+      </span>
+      <span class="site-pv">
+        历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/1oupu5fu1n6wut9ijokgt2qy71btajch.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20201006,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#1890ff">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+ 
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+
+
+ 
+<script async src="//code.tidio.co/1oupu5fu1n6wut9ijokgt2qy71btajch.js"></script>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 50,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+          $('#sidebar').wobbleWindow({
+            radius: 50,
+            movementLeft: false,
+            movementTop: false,
+            movementBottom: false,
+            position: 'fixed',
+            debug: false,
+          });
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 50,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
+
+
+
+
+  
+    <script src="/js/cursor/love.min.js"></script>
+  
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+  <!-- 打字火花特效 -->
+  <script type="text/javascript" src="/js/src/activate-power-mode.min.js"></script>
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'OsPCR38gNugKggSqhcd4ElLd-gzGzoHsz',
+      appKey     : 'vCoE9BBjDjs7inHz3VgLz6MI',
+      placeholder: "支持Markdown语法哦！（今后将不再回复不留昵称和邮箱的匿名用户）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":true,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":true},"react":{"opacityDefault":0.7}});</script></body>
+</html>
