@@ -418,6 +418,51 @@ td {
   transform: rotate(45deg);
   top: -5px;
 }
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: #fff;
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+.highlight-container {
+  background: #21252b;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+.highlight-container::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  width: 12px;
+}
+.highlight-container .highlight {
+  border-radius: 0 0 5px 5px;
+}
+.highlight-container .highlight .table-container {
+  border-radius: 0 0 5px 5px;
+}
 .highlight,
 pre {
   background: #f7f7f7;
@@ -1140,6 +1185,77 @@ pre .javascript .function {
 .use-motion .menu-item {
   opacity: 0;
 }
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+  border: 0;
+  color: #fff;
+  fill: #222;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+@media (max-width: 991px) {
+  .github-corner {
+    display: none;
+  }
+  .github-corner svg {
+    color: #222;
+    fill: #fff;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
 .sidebar {
   background: #222;
   bottom: 0;
@@ -1199,7 +1315,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff8fff;
+  background: #ff639f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1541,6 +1657,16 @@ pre .javascript .function {
     left: 20px;
     opacity: 0.8;
   }
+}
+.reading-progress-bar {
+  background: #FFFF00;
+  display: block;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  width: 0;
+  z-index: 1500;
+  top: 0;
 }
 .post-body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
