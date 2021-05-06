@@ -23,19 +23,19 @@
     var CONFIG = {"hostname":"allen-zc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":"/source/images/scroll.png"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="编码与密码工具 在线解码工具： online decode">
+  <meta name="description" content="Base32 Decode Online                 (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]&#x3D;r;i[r]&#x3D;i[r]||function(){(i[r].q&#x3D;i[r].q||[]).push(arguments)},i[r].l&#x3D;1*new Dat">
 <meta property="og:type" content="website">
-<meta property="og:title" content="工具箱">
-<meta property="og:url" content="https://allen-zc.github.io/tools/index.html">
+<meta property="og:title" content="AllenChen编程导航">
+<meta property="og:url" content="https://allen-zc.github.io/tool/online_decode/base32_decode.html">
 <meta property="og:site_name" content="AllenChen编程导航">
-<meta property="og:description" content="编码与密码工具 在线解码工具： online decode">
+<meta property="og:description" content="Base32 Decode Online                 (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]&#x3D;r;i[r]&#x3D;i[r]||function(){(i[r].q&#x3D;i[r].q||[]).push(arguments)},i[r].l&#x3D;1*new Dat">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-06T08:27:40.000Z">
-<meta property="article:modified_time" content="2021-05-06T09:52:22.584Z">
+<meta property="article:published_time" content="2021-05-06T08:38:22.370Z">
+<meta property="article:modified_time" content="2021-05-06T08:38:22.370Z">
 <meta property="article:author" content="AllenChen">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://allen-zc.github.io/tools/">
+<link rel="canonical" href="https://allen-zc.github.io/tool/online_decode/base32_decode">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>工具箱 | AllenChen编程导航
+  <title> | AllenChen编程导航
 </title>
   
 
@@ -242,11 +242,18 @@
     <div class="post-block" lang="zh-CN">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">工具箱
+<h1 class="post-title" itemprop="name headline">
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/tool/">TOOL</a></li>
+            <li><a href="/tool/online_decode/">ONLINE_DECODE</a></li>
+            <li>BASE32_DECODE</li>
+          
+  </ul>
 
 </div>
 
@@ -256,15 +263,116 @@
       
       
       <div class="post-body">
-          <p><strong>编码与密码工具</strong></p>
-<p>在线解码工具： <a href="/tool/online_decode/index.html">online decode</a></p>
-
+          <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Base32 online decode function">
+    <meta name="keywords" content="Base32,online,decode">
+    <title>Base32 Decode Online
+    </title>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44208259-6', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h1><a href="index.html">Online Tools</a></h1>
+    </div>
+    <div id="body">
+      <script src="js/main.js"></script>
+      <script src="https://rawgit.com/emn178/hi-base32/master/build/base32.min.js"></script>
+      <script>method = base32.decode;</script>
+      <div id="main">
+        <h1>Base32 Decode
+        </h1>
+        <div class="input">
+          <textarea id="input" placeholder="Input"></textarea>
+        </div>
+        <div class="submit">
+          <input id="execute" type="button" value="Decode" class="btn btn-default">
+          <label>
+            <input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
+          </label>
+        </div>
+        <div class="output">
+          <textarea id="output" placeholder="Output"></textarea>
+        </div>
+      </div>
+      <div id="sidebar">
+        <ul class="menu">
+          <li>
+            <div class="menu-group">Hash</div>
+          </li>
+          <li><a href="crc16.html">CRC-16</a></li>
+          <li><a href="crc32.html">CRC-32</a></li>
+          <li><a href="md2.html">MD2</a></li>
+          <li><a href="md4.html">MD4  </a></li>
+          <li><a href="md5.html">MD5</a></li>
+          <li><a href="sha1.html">SHA1</a></li>
+          <li><a href="sha224.html">SHA224</a></li>
+          <li><a href="sha256.html">SHA256</a></li>
+          <li><a href="sha384.html">SHA384</a></li>
+          <li><a href="sha512.html">SHA512</a></li>
+          <li><a href="sha512_224.html">SHA512/224</a></li>
+          <li><a href="sha512_256.html">SHA512/256</a></li>
+          <li><a href="sha3_224.html">SHA3-224</a></li>
+          <li><a href="sha3_256.html">SHA3-256</a></li>
+          <li><a href="sha3_384.html">SHA3-384</a></li>
+          <li><a href="sha3_512.html">SHA3-512</a></li>
+          <li><a href="keccak_224.html">Keccak-224</a></li>
+          <li><a href="keccak_256.html">Keccak-256</a></li>
+          <li><a href="keccak_384.html">Keccak-384</a></li>
+          <li><a href="keccak_512.html">Keccak-512</a></li>
+          <li><a href="shake_128.html">Shake-128</a></li>
+          <li><a href="shake_256.html">Shake-256</a></li>
+        </ul>
+        <ul class="menu">
+          <li>
+            <div class="menu-group">Checksum</div>
+          </li>
+          <li><a href="crc32_checksum.html">CRC-32</a></li>
+          <li><a href="md5_checksum.html">MD5</a></li>
+          <li><a href="sha1_checksum.html">SHA1</a></li>
+        </ul>
+        <ul class="menu">
+          <li>
+            <div class="menu-group">Encode / Decode</div>
+          </li>
+          <li><a href="base32_encode.html">Base32 Encode</a></li>
+          <li><a href="base32_decode.html">Base32 Decode</a></li>
+          <li><a href="base64_encode.html">Base64 Encode</a></li>
+          <li><a href="base64_decode.html">Base64 Decode</a></li>
+          <li><a href="html_encode.html">HTML Encode</a></li>
+          <li><a href="html_decode.html">HTML Decode</a></li>
+          <li><a href="url_encode.html">URL Encode</a></li>
+          <li><a href="url_decode.html">URL Decode</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">&copy; 2015 Online Tools</div>
+  </body>
+</html>
       </div>
       
       
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/tool/">TOOL</a></li>
+            <li><a href="/tool/online_decode/">ONLINE_DECODE</a></li>
+            <li>BASE32_DECODE</li>
+          
+  </ul>
 
     
     
@@ -320,6 +428,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#header"><span class="nav-text">Online Tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#main"><span class="nav-text">Base32 Decode
+        </span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
