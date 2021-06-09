@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"allen-zc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":"/source/images/scroll.png"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="AbstractAction (Java Platform SE 6)     function windowTitle() {     if (location.href.indexOf(&#39;is-external&#x3D;true&#39;) &#x3D;&#x3D; -1) {         parent.document.title&#x3D;&quot;AbstractAction (Java Platform SE 6)&quot;;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AllenChen&#39;s Blog">
+<meta property="og:url" content="https://allen-zc.github.io/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-summary.html">
+<meta property="og:site_name" content="AllenChen&#39;s Blog">
+<meta property="og:description" content="AbstractAction (Java Platform SE 6)     function windowTitle() {     if (location.href.indexOf(&#39;is-external&#x3D;true&#39;) &#x3D;&#x3D; -1) {         parent.document.title&#x3D;&quot;AbstractAction (Java Platform SE 6)&quot;;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://allen-zc.github.io/AbstractAction%20(Java%20Platform%20SE%206)_files/inherit.gif">
+<meta property="article:published_time" content="2021-06-08T10:54:48.509Z">
+<meta property="article:modified_time" content="2021-06-08T10:54:47.900Z">
+<meta property="article:author" content="AllenChen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://allen-zc.github.io/AbstractAction%20(Java%20Platform%20SE%206)_files/inherit.gif">
+
+<link rel="canonical" href="https://allen-zc.github.io/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-summary">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | AllenChen's Blog
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a target="_blank" rel="noopener" href="https://github.com/Allen-zc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenChen's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">晨学长</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-top">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>排行榜</a>
+
+  </li>
+        <li class="menu-item menu-item-bookstore">
+
+    <a href="/bookstore/" rel="section"><i class="fa fa-store fa-fw"></i>书店</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-book-open fa-fw"></i>阅读</a>
+
+  </li>
+        <li class="menu-item menu-item-movies">
+
+    <a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>观影</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>生活足迹</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user-graduate fa-fw"></i>关于我</a>
+
+  </li>
+        <li class="menu-item menu-item-toolbox">
+
+    <a href="/toolbox/" rel="section"><i class="fa fa-toolbox fa-fw"></i>工具箱</a>
+
+  </li>
+        <li class="menu-item menu-item-dynamic_resume">
+
+    <a href="/Dynamic_resume/public/" rel="section"><i class="fa fa-id-card fa-fw"></i>动态简历</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FsbGVuLXpj" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0067)http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractAction.html -->
+<html ml-update="aware"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>
+AbstractAction (Java Platform SE 6)
+</title>
+<meta name="date" content="2007-03-19">
+<link rel="stylesheet" type="text/css" href="./stylesheet.css" title="Style">
+<script type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="AbstractAction (Java Platform SE 6)";
+    }
+}
+</script>
+<noscript>
+</noscript>
+<style type="text/css">[id^=root], [id^=docs], .cc_cursor, body, .ogdlpmhglpejoiomcodnpjnfgcpmgale_default, body, html, input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input::-webkit-contacts-auto-fill-button, input:read-only {cursor: url("data:image/png;base64,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") 0 0 , auto !important; }[role^=button], button, .cc_pointer, [type="search"]::-webkit-search-cancel-button, a, select, [type="search"]::-webkit-search-decoration, .paper-button, .ytp-progress-bar-container, input[type=submit], :link, :visited, a > *, img, button, ::-webkit-scrollbar-button, .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer, ::-webkit-file-upload-button, button, .ytp-volume-panel, #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon { cursor: url("data:image/png;base64,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") 9 0, auto !important; } * {cursor: url("data:image/png;base64,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") 0 0 , auto }a, button, [type^=button], [role^=button]   { cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAHDElEQVRoQ92a61NUZRzHv885u2eXswtijpcxb8gSZ0NEX+WbepFoKaFWoyyOYJl3hwBHnTFYzTJJ01IQR2q6N9E97PIXFPWii+IEBxQVzZBFkesCy+45T/M8u+wobk3BWaftGZhlzznPc36f87s+vwNBhJGamrpMEIQPAFginNYppdWU0sKmpqbeSPPv5jES6WaKohwjhDzLzhFCQEFBQEAp5ZdTSut0Xc86d+7cH3dT2Ej3+iuAckppwQMLFmBbUTEscXF8bkPdGezeuQNxsu2/D6DresHCzEy4Dx6CVbZxgLofapGfmwObPT5GAX6sRb7LBZvdHssAsaIBTStYuGhRBBOKeQ3EDIBWsDBzhAb+Dz6Q53LBHrNO/EMt8nJjGSDmTShWNOB0Oo9qmlYYORO7YI+PryeEPKPrume0tVAgEAg0Nze3AQiMdg1eq42c7HA4LCaT6RNd15f9DYAPQDsA7d/efLggJIT4CCH7GxoaWNU76nEbQGpqajyAEkEQijVNk+4A+LEWLAolJIyDZLGAECBYnwK+gQH+aZYkiKLI/9Z1Hb7BQQiCALPFAoFNADDk87FzbOoeVVX3j1r6WzWQlpZmp5Tuo5RuppTK7OYRAXJyMDM5GbmbNkOSZa5DiyShYu9edHd18ePTkpNZHY6b11pR9fLLmDR1KtZs2waL3Q6TKOLjqipcuXDBOACHw5EgimKlIAg5lFJzfEICurs6cUciY07sysF9c+agtOI4ZLudq0C227Bh6RJ0tLXBffw4UjPm8YfaeukSilatxIyUFLxwsgpyfALMkhkHCgvRcPpXYwDS09PHBwKBlwBsAGBa5XKh19uPr7/8ApkjayFmQjlBAHdFBeJsdi5onM2GjQzA4+FgSkZGEKDlEgpXrcLMlBTsO3mSX89MqayoCKpRAE6nsxLAer/fLz217hms37IFRw4dwqnPPsXIYq79Sgs2rVuHefPno6jEDYtN5oJKgogdWzbj9C8/o/LNtzA7LY0fZybkyn4MaekZOHD0NVwPaBDNZmMBFEXp13U9bvuuXXhy9RpYLBa8WFoSEQCUotPTBslqhW1cIrfz4dHTcQPenm5MmjaDC8kH1dF2+TJ3+AlTpuBcezsEk8lYAKfT6RMEQaquqcG02Q6YALzoLsGpT+/UwFiihUCApra26AAQQqTqL2sw3ZESBPgrDYyBIGoAiqIENXALwAulJfgqgg+MQX5EDYCZUExrICJATPpAzSlMTw45cdR9oBDq6dPGJLJIGnhprxufV1dj8SOPovTgwXBfKCZ8gEX2n77/Dm+cqMTS7Gxkr8zhoW+s4645Mc8/VEd/VxcsNjtMkjRW2fn86APU1GB6coohwkZaZCRAw6+/UELI2MvpkT4QLQKRAI0sE4siyoqLDS3meCL7qKYG9852REV+5lcd3l54enogScZXowOaplk3bt0K19qnICeMMxSC+VNHXx9u9Pby4o/t2MoKC6GeMSiMKopykhCy1ufzWTMXL8a24u28JjJiaLqG9p5udPcP8p0b08Tvzc2oeH4vbng8xuSBWbNmJVqt1p2EkO2UUuvMpCQcPHwEMxVneL87Ghh/wI+rnZ3wBYJNB7ZPvqSqOOYuRdfNm+wtz1VRFF319fW1o1l/eM5wQS84nc4CSukRSqnIXiuVV57AjKQk/thMJjPGT54CIopgdf9AXy9/9SQIIhInTb4t1PoHBnDD0wbP4CB8msbnCyBoPHMGR/e4YbVamfAXCSGPqqp6fizCs7nhHYmiKLtZJU0I4S0F1v6wsT0vgHsmTMC+A2W4Pz0dT+e6cLmlhQPEyTJ2PVeCBxct5tpiE1+vOIYP33s/9F4tJB4h6O/r492J0GjVdX15U1PTz4YBOJ3ObwBkBfx+BJjaKeVCarqOxMREnHj7HczNmIuszEy0XLjAz8myjP2HD+PhJVlhgPJXDqGqojzcWuGaCu3cGCTbnYVAclVV/chwgCUrV2Jp7urwulPlOIyzx0NOHA+dZVT/EDrar/PdpMlsRuLESbd1tyQCeFpb+QNg+u3w+dAz5OfrDXq9qCorw/n639gDcKmq+rHhAMvW5GH52rVcAPbEkiZOhNU8unKCQV7r6kKn18s1xgCYEzfV1YEIQpQBQn4QFYCzZ6OjAUpp1rK8fKxgGogiQGNdHfOD6Ggge01eEICyH2qoCQ14vShnJhQtDbAoxAHy83naZ6HUWBPqxzF3SXQBFq54HIueeCLsxFNtNkis2xz6P4lw1GAZZLg1zdvUoS8jGvYdgz70Dg3xlOMb7Me7r76Ki42NUfGBbwEsZdGC/QZzHOVaGJYzKDy3rdu6csGQGSLiF4cKH76RGV4rOFvXg68UKKWrGxsbq40Mo0WU0jISlD48GMCth0Z+jyTAP7imE8BDRpQSfwIsd3RtpcErCgAAAABJRU5ErkJggg==") 9 0, auto }</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+<body bgcolor="white" onload="windowTitle();">
+<hr>
+<a name="navbar_top"></a>
+<a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractAction.html#skip-navbar_top" title="������������"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0" summary="">
+<tbody><tr>
+<td colspan="2" bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"></a>
+<table border="0" cellpadding="0" cellspacing="3" summary="">
+<tbody><tr align="center" valign="top">
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/overview-summary.html"><font class="NavBarFont1"><b>����</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/package-summary.html"><font class="NavBarFont1"><b>������</b></font></a>&nbsp;</td>
+<td bgcolor="#FFFFFF" class="NavBarCell1Rev"> &nbsp;<font class="NavBarFont1Rev"><b>��</b></font>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/class-use/AbstractAction.html"><font class="NavBarFont1"><b>ʹ��</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/package-tree.html"><font class="NavBarFont1"><b>��</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/deprecated-list.html"><font class="NavBarFont1"><b>�ѹ�ʱ</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/index-files/index-1.html"><font class="NavBarFont1"><b>����</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/help-doc.html"><font class="NavBarFont1"><b>����</b></font></a>&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+<td align="right" valign="top" rowspan="3"><em>
+<b>Java<sup><font size="-2">TM</font></sup>&nbsp;Platform<br>Standard&nbsp;Ed. 6</b></em>
+</td>
+</tr>
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;��һ����&nbsp;
+&nbsp;<a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractButton.html" title="javax.swing �е���"><b>��һ����</b></a></font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+<a href="http://doc.canglaoshi.org/jdk6-docs/index.html?javax/swing/AbstractAction.html" target="_top"><b>���</b></a> &nbsp;
+&nbsp;<a href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractAction.html" target="_top"><b>�޿��</b></a> &nbsp;
+&nbsp;<script type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../allclasses-noframe.html"><B>������</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<A HREF="../../allclasses-noframe.html"><B>������</B></A>
+</noscript>
+</font></td>
+</tr>
+<tr>
+<td valign="top" class="NavBarCell3"><font size="-2">
+ժҪ��&nbsp;Ƕ��&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNmaWVsZF9zdW1tYXJ5">�ֶ�<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNjb25zdHJ1Y3Rvcl9zdW1tYXJ5">���췽��<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNtZXRob2Rfc3VtbWFyeQ==">����<i class="fa fa-external-link-alt"></i></span></font></td>
+<td valign="top" class="NavBarCell3"><font size="-2">
+��ϸ��Ϣ��&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNmaWVsZF9kZXRhaWw=">�ֶ�<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNjb25zdHJ1Y3Rvcl9kZXRhaWw=">���췽��<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNtZXRob2RfZGV0YWls">����<i class="fa fa-external-link-alt"></i></span></font></td>
+</tr>
+</tbody></table>
+<a name="skip-navbar_top"></a>
+<hr>
+<h2>
+<font size="-1">
+javax.swing</font>
+<br>
+�� AbstractAction</h2>
+<pre><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">java.lang.Object<i class="fa fa-external-link-alt"></i></span>
+  <img data-src="./inherit.gif" alt="�̳��� "><b>javax.swing.AbstractAction</b>
+</pre>
+<dl>
+<dt><b>������ʵ�ֵĽӿڣ�</b> </dt><dd><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZXZlbnQvQWN0aW9uTGlzdGVuZXIuaHRtbA==">ActionListener<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9pby9TZXJpYWxpemFibGUuaHRtbA==">Serializable<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL0Nsb25lYWJsZS5odG1s">Cloneable<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL0V2ZW50TGlzdGVuZXIuaHRtbA==">EventListener<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></dd>
+</dl>
+<dl>
+<dt><b>ֱ����֪���ࣺ</b> </dt><dd><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0Rlc2t0b3BQYW5lVUkuQ2xvc2VBY3Rpb24uaHRtbA==">BasicDesktopPaneUI.CloseAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0Rlc2t0b3BQYW5lVUkuTWF4aW1pemVBY3Rpb24uaHRtbA==">BasicDesktopPaneUI.MaximizeAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0Rlc2t0b3BQYW5lVUkuTWluaW1pemVBY3Rpb24uaHRtbA==">BasicDesktopPaneUI.MinimizeAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0Rlc2t0b3BQYW5lVUkuTmF2aWdhdGVBY3Rpb24uaHRtbA==">BasicDesktopPaneUI.NavigateAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0Rlc2t0b3BQYW5lVUkuT3BlbkFjdGlvbi5odG1s">BasicDesktopPaneUI.OpenAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ZpbGVDaG9vc2VyVUkuQXBwcm92ZVNlbGVjdGlvbkFjdGlvbi5odG1s">BasicFileChooserUI.ApproveSelectionAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ZpbGVDaG9vc2VyVUkuQ2FuY2VsU2VsZWN0aW9uQWN0aW9uLmh0bWw=">BasicFileChooserUI.CancelSelectionAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ZpbGVDaG9vc2VyVUkuQ2hhbmdlVG9QYXJlbnREaXJlY3RvcnlBY3Rpb24uaHRtbA==">BasicFileChooserUI.ChangeToParentDirectoryAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ZpbGVDaG9vc2VyVUkuR29Ib21lQWN0aW9uLmh0bWw=">BasicFileChooserUI.GoHomeAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ZpbGVDaG9vc2VyVUkuTmV3Rm9sZGVyQWN0aW9uLmh0bWw=">BasicFileChooserUI.NewFolderAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ZpbGVDaG9vc2VyVUkuVXBkYXRlQWN0aW9uLmh0bWw=">BasicFileChooserUI.UpdateAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ludGVybmFsRnJhbWVUaXRsZVBhbmUuQ2xvc2VBY3Rpb24uaHRtbA==">BasicInternalFrameTitlePane.CloseAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ludGVybmFsRnJhbWVUaXRsZVBhbmUuSWNvbmlmeUFjdGlvbi5odG1s">BasicInternalFrameTitlePane.IconifyAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ludGVybmFsRnJhbWVUaXRsZVBhbmUuTWF4aW1pemVBY3Rpb24uaHRtbA==">BasicInternalFrameTitlePane.MaximizeAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ludGVybmFsRnJhbWVUaXRsZVBhbmUuTW92ZUFjdGlvbi5odG1s">BasicInternalFrameTitlePane.MoveAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ludGVybmFsRnJhbWVUaXRsZVBhbmUuUmVzdG9yZUFjdGlvbi5odG1s">BasicInternalFrameTitlePane.RestoreAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY0ludGVybmFsRnJhbWVUaXRsZVBhbmUuU2l6ZUFjdGlvbi5odG1s">BasicInternalFrameTitlePane.SizeAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1NsaWRlclVJLkFjdGlvblNjcm9sbGVyLmh0bWw=">BasicSliderUI.ActionScroller<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1RyZWVVSS5UcmVlQ2FuY2VsRWRpdGluZ0FjdGlvbi5odG1s">BasicTreeUI.TreeCancelEditingAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1RyZWVVSS5UcmVlSG9tZUFjdGlvbi5odG1s">BasicTreeUI.TreeHomeAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1RyZWVVSS5UcmVlSW5jcmVtZW50QWN0aW9uLmh0bWw=">BasicTreeUI.TreeIncrementAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1RyZWVVSS5UcmVlUGFnZUFjdGlvbi5odG1s">BasicTreeUI.TreePageAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1RyZWVVSS5UcmVlVG9nZ2xlQWN0aW9uLmh0bWw=">BasicTreeUI.TreeToggleAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9CYXNpY1RyZWVVSS5UcmVlVHJhdmVyc2VBY3Rpb24uaHRtbA==">BasicTreeUI.TreeTraverseAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9tZXRhbC9NZXRhbEZpbGVDaG9vc2VyVUkuRGlyZWN0b3J5Q29tYm9Cb3hBY3Rpb24uaHRtbA==">MetalFileChooserUI.DirectoryComboBoxAction<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdGV4dC9UZXh0QWN0aW9uLmh0bWw=">TextAction<i class="fa fa-external-link-alt"></i></span></dd>
+</dl>
+<hr>
+<dl>
+<dt><pre>public abstract class <b>AbstractAction</b><dt>extends <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span></dt><dt>implements <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL0Nsb25lYWJsZS5odG1s">Cloneable<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9pby9TZXJpYWxpemFibGUuaHRtbA==">Serializable<i class="fa fa-external-link-alt"></i></span></dt></pre></dt></dl>
+
+<p>
+�����ṩ JFC <code>Action</code> �ӿڵ�Ĭ��ʵ�֡���������һЩ��׼��Ϊ������ <code>Action</code> �������ԣ�icon��text �� enabled���� get �� set ������������Աֻ��Ϊ�˳����ഴ�����ಢ���� <code>actionPerformed</code> �������ɡ�
+</p><p>
+<strong>���棺</strong>����������л��������Ժ�� Swing �汾�����ݡ���ǰ���л�֧�������ڶ��ڴ洢������������������ͬ Swing �汾��Ӧ�ó���֮����� RMI��Remote Method Invocation��Զ�̷������ã����� 1.4 �汾��ʼ������ <code>java.beans</code> ����������֧������ JavaBeans<sup><font size="-2">TM</font></sup> ���ڴ洢�Ĺ��ܡ���μ� <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/java/beans/XMLEncoder.html" title="java.beans �е���"><code>XMLEncoder</code></a>��
+</p><p>
+</p><p>
+</p><dl>
+<dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html" title="javax.swing �еĽӿ�"><code>Action</code></a></dd></dl>
+<hr>
+<p>
+<a name="field_summary"></a>
+</p><table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<th align="left" colspan="2"><font size="+2">
+<b>�ֶ�ժҪ</b></font></th>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>protected &nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvZXZlbnQvU3dpbmdQcm9wZXJ0eUNoYW5nZVN1cHBvcnQuaHRtbA==">SwingPropertyChangeSupport<i class="fa fa-external-link-alt"></i></span></code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNjaGFuZ2VTdXBwb3J0">changeSupport<i class="fa fa-external-link-alt"></i></span></b></code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;����Ѿ�ע�������� <code>PropertyChangeListener</code>���� <code>changeSupport</code> �ֶθ����������ǡ�</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>protected &nbsp;boolean</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNlbmFibGVk">enabled<i class="fa fa-external-link-alt"></i></span></b></code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ָ���Ƿ����ò�����Ĭ��ֵΪ true��</td>
+</tr>
+</tbody></table>
+&nbsp;<a name="fields_inherited_from_class_javax.swing.Action"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#EEEEFF" class="TableSubHeadingColor">
+<th align="left"><b>�ӽӿ� javax.swing.<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span> �̳е��ֶ�</b></th>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td><code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjQUNDRUxFUkFUT1JfS0VZ">ACCELERATOR_KEY<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjQUNUSU9OX0NPTU1BTkRfS0VZ">ACTION_COMMAND_KEY<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjREVGQVVMVA==">DEFAULT<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjRElTUExBWUVEX01ORU1PTklDX0lOREVYX0tFWQ==">DISPLAYED_MNEMONIC_INDEX_KEY<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjTEFSR0VfSUNPTl9LRVk=">LARGE_ICON_KEY<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjTE9OR19ERVNDUklQVElPTg==">LONG_DESCRIPTION<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjTU5FTU9OSUNfS0VZ">MNEMONIC_KEY<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjTkFNRQ==">NAME<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjU0VMRUNURURfS0VZ">SELECTED_KEY<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjU0hPUlRfREVTQ1JJUFRJT04=">SHORT_DESCRIPTION<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjU01BTExfSUNPTg==">SMALL_ICON<i class="fa fa-external-link-alt"></i></span></code></td>
+</tr>
+</tbody></table>
+&nbsp;
+<a name="constructor_summary"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<th align="left" colspan="2"><font size="+2">
+<b>���췽��ժҪ</b></font></th>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNBYnN0cmFjdEFjdGlvbigp">AbstractAction<i class="fa fa-external-link-alt"></i></span></b>()</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��Ĭ�������ַ�����Ĭ��ͼ�궨��һ�� <code>Action</code> ����</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNBYnN0cmFjdEFjdGlvbihqYXZhLmxhbmcuU3RyaW5nKQ==">AbstractAction<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;name)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��ָ�������ַ�����Ĭ��ͼ�궨��һ�� <code>Action</code> ����</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNBYnN0cmFjdEFjdGlvbihqYXZhLmxhbmcuU3RyaW5nLCUyMGphdmF4LnN3aW5nLkljb24p">AbstractAction<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;name,
+<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvSWNvbi5odG1s">Icon<i class="fa fa-external-link-alt"></i></span>&nbsp;icon)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��ָ�������ַ�����ָ��ͼ�궨��һ�� <code>Action</code> ����</td>
+</tr>
+</tbody></table>
+&nbsp;
+<a name="method_summary"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<th align="left" colspan="2"><font size="+2">
+<b>����ժҪ</b></font></th>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;void</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNhZGRQcm9wZXJ0eUNoYW5nZUxpc3RlbmVyKGphdmEuYmVhbnMuUHJvcGVydHlDaGFuZ2VMaXN0ZW5lcik=">addPropertyChangeListener<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9Qcm9wZXJ0eUNoYW5nZUxpc3RlbmVyLmh0bWw=">PropertyChangeListener<i class="fa fa-external-link-alt"></i></span>&nbsp;listener)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���������б�����һ�� <code>PropertyChangeListener</code>��</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>protected &nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span></code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNjbG9uZSgp">clone<i class="fa fa-external-link-alt"></i></span></b>()</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���Ƴ��������</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>protected &nbsp;void</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNmaXJlUHJvcGVydHlDaGFuZ2UoamF2YS5sYW5nLlN0cmluZywlMjBqYXZhLmxhbmcuT2JqZWN0LCUyMGphdmEubGFuZy5PYmplY3Qp">firePropertyChange<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;propertyName,
+<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>&nbsp;oldValue,
+<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>&nbsp;newValue)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;֧�ֱ���� (bound) ���Եĸı䡣</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>[]</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNnZXRLZXlzKCk=">getKeys<i class="fa fa-external-link-alt"></i></span></b>()</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���� <code>Object</code> �����飬��Щ������һЩ�Ѿ�Ϊ�����ô� <code>AbstractAction</code> ֵ�ļ������û���Ѿ����ø�ֵ�ļ����򷵻� <code>null</code>��</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9Qcm9wZXJ0eUNoYW5nZUxpc3RlbmVyLmh0bWw=">PropertyChangeListener<i class="fa fa-external-link-alt"></i></span>[]</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNnZXRQcm9wZXJ0eUNoYW5nZUxpc3RlbmVycygp">getPropertyChangeListeners<i class="fa fa-external-link-alt"></i></span></b>()</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;����ʹ�� addPropertyChangeListener() ���ӵ��� AbstractAction �е����� <code>PropertyChangeListener</code> ��ɵ����顣</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span></code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNnZXRWYWx1ZShqYXZhLmxhbmcuU3RyaW5nKQ==">getValue<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;key)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�����ָ���������� <code>Object</code>��</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;boolean</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNpc0VuYWJsZWQoKQ==">isEnabled<i class="fa fa-external-link-alt"></i></span></b>()</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;������øò������򷵻� true��</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;void</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNwdXRWYWx1ZShqYXZhLmxhbmcuU3RyaW5nLCUyMGphdmEubGFuZy5PYmplY3Qp">putValue<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;key,
+<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>&nbsp;newValue)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;������ָ���������� <code>Value</code>��</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;void</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNyZW1vdmVQcm9wZXJ0eUNoYW5nZUxpc3RlbmVyKGphdmEuYmVhbnMuUHJvcGVydHlDaGFuZ2VMaXN0ZW5lcik=">removePropertyChangeListener<i class="fa fa-external-link-alt"></i></span></b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9Qcm9wZXJ0eUNoYW5nZUxpc3RlbmVyLmh0bWw=">PropertyChangeListener<i class="fa fa-external-link-alt"></i></span>&nbsp;listener)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���������б����Ƴ�һ�� <code>PropertyChangeListener</code>��</td>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td align="right" valign="top" width="1%"><font size="-1">
+<code>&nbsp;void</code></font></td>
+<td><code><b><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNzZXRFbmFibGVkKGJvb2xlYW4p">setEnabled<i class="fa fa-external-link-alt"></i></span></b>(boolean&nbsp;newValue)</code>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���û���øò�����</td>
+</tr>
+</tbody></table>
+&nbsp;<a name="methods_inherited_from_class_java.lang.Object"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#EEEEFF" class="TableSubHeadingColor">
+<th align="left"><b>���� java.lang.<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span> �̳еķ���</b></th>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td><code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI2VxdWFscyhqYXZhLmxhbmcuT2JqZWN0KQ==">equals<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI2ZpbmFsaXplKCk=">finalize<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI2dldENsYXNzKCk=">getClass<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI2hhc2hDb2RlKCk=">hashCode<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI25vdGlmeSgp">notify<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI25vdGlmeUFsbCgp">notifyAll<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI3RvU3RyaW5nKCk=">toString<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI3dhaXQoKQ==">wait<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI3dhaXQobG9uZyk=">wait<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI3dhaXQobG9uZywlMjBpbnQp">wait<i class="fa fa-external-link-alt"></i></span></code></td>
+</tr>
+</tbody></table>
+&nbsp;<a name="methods_inherited_from_class_java.awt.event.ActionListener"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#EEEEFF" class="TableSubHeadingColor">
+<th align="left"><b>�ӽӿ� java.awt.event.<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZXZlbnQvQWN0aW9uTGlzdGVuZXIuaHRtbA==">ActionListener<i class="fa fa-external-link-alt"></i></span> �̳еķ���</b></th>
+</tr>
+<tr bgcolor="white" class="TableRowColor">
+<td><code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZXZlbnQvQWN0aW9uTGlzdGVuZXIuaHRtbCNhY3Rpb25QZXJmb3JtZWQoamF2YS5hd3QuZXZlbnQuQWN0aW9uRXZlbnQp">actionPerformed<i class="fa fa-external-link-alt"></i></span></code></td>
+</tr>
+</tbody></table>
+&nbsp;
+<p>
+<a name="field_detail"></a>
+</p><table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<th align="left" colspan="1"><font size="+2">
+<b>�ֶ���ϸ��Ϣ</b></font></th>
+</tr>
+</tbody></table>
+<a name="enabled"></a><h3>
+enabled</h3>
+<pre>protected boolean <b>enabled</b></pre>
+<dl>
+<dd>ָ���Ƿ����ò�����Ĭ��ֵΪ true��
+<p>
+</p><dl>
+</dl>
+</dd></dl>
+<hr>
+<a name="changeSupport"></a><h3>
+changeSupport</h3>
+<pre>protected <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvZXZlbnQvU3dpbmdQcm9wZXJ0eUNoYW5nZVN1cHBvcnQuaHRtbA==">SwingPropertyChangeSupport<i class="fa fa-external-link-alt"></i></span> <b>changeSupport</b></pre>
+<dl>
+<dd>����Ѿ�ע�������� <code>PropertyChangeListener</code>���� <code>changeSupport</code> �ֶθ����������ǡ�
+<p>
+</p><dl>
+</dl>
+</dd></dl>
+<a name="constructor_detail"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<th align="left" colspan="1"><font size="+2">
+<b>���췽����ϸ��Ϣ</b></font></th>
+</tr>
+</tbody></table>
+<a name="AbstractAction()"></a><h3>
+AbstractAction</h3>
+<pre>public <b>AbstractAction</b>()</pre>
+<dl>
+<dd>��Ĭ�������ַ�����Ĭ��ͼ�궨��һ�� <code>Action</code> ����
+<p>
+</p></dd></dl>
+<hr>
+<a name="AbstractAction(java.lang.String)"></a><h3>
+AbstractAction</h3>
+<pre>public <b>AbstractAction</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;name)</pre>
+<dl>
+<dd>��ָ�������ַ�����Ĭ��ͼ�궨��һ�� <code>Action</code> ����
+<p>
+</p></dd></dl>
+<hr>
+<a name="AbstractAction(java.lang.String, javax.swing.Icon)"></a><h3>
+AbstractAction</h3>
+<pre>public <b>AbstractAction</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;name,
+                      <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvSWNvbi5odG1s">Icon<i class="fa fa-external-link-alt"></i></span>&nbsp;icon)</pre>
+<dl>
+<dd>��ָ�������ַ�����ָ��ͼ�궨��һ�� <code>Action</code> ����
+<p>
+</p></dd></dl>
+<a name="method_detail"></a>
+<table border="1" width="100%" cellpadding="3" cellspacing="0" summary="">
+<tbody><tr bgcolor="#CCCCFF" class="TableHeadingColor">
+<th align="left" colspan="1"><font size="+2">
+<b>������ϸ��Ϣ</b></font></th>
+</tr>
+</tbody></table>
+<a name="getValue(java.lang.String)"></a><h3>
+getValue</h3>
+<pre>public <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span> <b>getValue</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;key)</pre>
+<dl>
+<dd>�����ָ���������� <code>Object</code>��
+<p>
+</p></dd><dd><dl>
+<dt><b>ָ���ߣ�</b></dt><dd>�ӿ� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjZ2V0VmFsdWUoamF2YS5sYW5nLlN0cmluZyk=">getValue<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>������</b></dt><dd><code>key</code> - ����ָ�� <code>key</code> ���ַ���
+</dd><dt><b>���أ�</b></dt><dd>�ô˼��洢�İ� <code>Object</code>�����û�м����򽫷��� <code>null</code></dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html#getValue(java.lang.String)"><code>Action.getValue(java.lang.String)</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="putValue(java.lang.String, java.lang.Object)"></a><h3>
+putValue</h3>
+<pre>public void <b>putValue</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;key,
+                     <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>&nbsp;newValue)</pre>
+<dl>
+<dd>������ָ���������� <code>Value</code>��
+<p>
+</p></dd><dd><dl>
+<dt><b>ָ���ߣ�</b></dt><dd>�ӿ� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjcHV0VmFsdWUoamF2YS5sYW5nLlN0cmluZywlMjBqYXZhLmxhbmcuT2JqZWN0KQ==">putValue<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>������</b></dt><dd><code>key</code> - ��ʶ���洢����� <code>String</code></dd><dd><code>newValue</code> - ��ʹ�ô˼��洢�� <code>Object</code></dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html#putValue(java.lang.String,%20java.lang.Object)"><code>Action.putValue(java.lang.String, java.lang.Object)</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="isEnabled()"></a><h3>
+isEnabled</h3>
+<pre>public boolean <b>isEnabled</b>()</pre>
+<dl>
+<dd>������øò������򷵻� true��
+<p>
+</p></dd><dd><dl>
+<dt><b>ָ���ߣ�</b></dt><dd>�ӿ� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjaXNFbmFibGVkKCk=">isEnabled<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>���أ�</b></dt><dd>������øò������򷵻� true�����򷵻� false</dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html#isEnabled()"><code>Action.isEnabled()</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="setEnabled(boolean)"></a><h3>
+setEnabled</h3>
+<pre>public void <b>setEnabled</b>(boolean&nbsp;newValue)</pre>
+<dl>
+<dd>���û���øò�����
+<p>
+</p></dd><dd><dl>
+<dt><b>ָ���ߣ�</b></dt><dd>�ӿ� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjc2V0RW5hYmxlZChib29sZWFuKQ==">setEnabled<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>������</b></dt><dd><code>newValue</code> - Ϊ true ��ʾ���øò�����Ϊ false ��ʾ���øò���</dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html#setEnabled(boolean)"><code>Action.setEnabled(boolean)</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="getKeys()"></a><h3>
+getKeys</h3>
+<pre>public <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>[] <b>getKeys</b>()</pre>
+<dl>
+<dd>���� <code>Object</code> �����飬��Щ������һЩ�Ѿ�Ϊ�����ô� <code>AbstractAction</code> ֵ�ļ������û���Ѿ����ø�ֵ�ļ����򷵻� <code>null</code>��
+<p>
+</p></dd><dd><dl>
+</dl>
+</dd>
+<dd><dl>
+<dt><b>���أ�</b></dt><dd>һ�����������飬���û���Ѿ����ú�ֵ�ļ����򷵻� <code>null</code></dd><dt><b>�����°汾��ʼ��</b></dt>
+<dd>1.3</dd>
+</dl>
+</dd>
+</dl>
+<hr>
+<a name="firePropertyChange(java.lang.String, java.lang.Object, java.lang.Object)"></a><h3>
+firePropertyChange</h3>
+<pre>protected void <b>firePropertyChange</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL1N0cmluZy5odG1s">String<i class="fa fa-external-link-alt"></i></span>&nbsp;propertyName,
+                                  <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>&nbsp;oldValue,
+                                  <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span>&nbsp;newValue)</pre>
+<dl>
+<dd>֧�ֱ���� (bound) ���Եĸı䡣���ı��˰�����ʱ�ɵ��ô˷�����������������ע��� <code>PropertyChangeListener</code> ������Ӧ�� <code>PropertyChangeEvent</code>��
+<p>
+</p></dd><dd><dl>
+</dl>
+</dd>
+<dd><dl>
+</dl>
+</dd>
+</dl>
+<hr>
+<a name="addPropertyChangeListener(java.beans.PropertyChangeListener)"></a><h3>
+addPropertyChangeListener</h3>
+<pre>public void <b>addPropertyChangeListener</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9Qcm9wZXJ0eUNoYW5nZUxpc3RlbmVyLmh0bWw=">PropertyChangeListener<i class="fa fa-external-link-alt"></i></span>&nbsp;listener)</pre>
+<dl>
+<dd>���������б�����һ�� <code>PropertyChangeListener</code>������������Ϊ��������ע��ġ�
+<p>
+����Ӧ�԰����ԣ����� <code>setFont</code>��<code>setBackground</code> �� <code>setForeground</code>��������ʱ��������һ�� <code>PropertyChangeEvent</code>��ע�⣬�����ǰ������̳���������ǰ�������������壬������Ӧ���̳������еĸ���ʱ���ᴥ���κ��¼���
+</p><p>
+</p></dd><dd><dl>
+<dt><b>ָ���ߣ�</b></dt><dd>�ӿ� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjYWRkUHJvcGVydHlDaGFuZ2VMaXN0ZW5lcihqYXZhLmJlYW5zLlByb3BlcnR5Q2hhbmdlTGlzdGVuZXIp">addPropertyChangeListener<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>������</b></dt><dd><code>listener</code> - Ҫ���ӵ� <code>PropertyChangeListener</code></dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html#addPropertyChangeListener(java.beans.PropertyChangeListener)"><code>Action.addPropertyChangeListener(java.beans.PropertyChangeListener)</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="removePropertyChangeListener(java.beans.PropertyChangeListener)"></a><h3>
+removePropertyChangeListener</h3>
+<pre>public void <b>removePropertyChangeListener</b>(<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9Qcm9wZXJ0eUNoYW5nZUxpc3RlbmVyLmh0bWw=">PropertyChangeListener<i class="fa fa-external-link-alt"></i></span>&nbsp;listener)</pre>
+<dl>
+<dd>���������б����Ƴ�һ�� <code>PropertyChangeListener</code>���˷����Ƴ���һ��Ϊ��������ע��� <code>PropertyChangeListener</code>��
+<p>
+</p></dd><dd><dl>
+<dt><b>ָ���ߣ�</b></dt><dd>�ӿ� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWw=">Action<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWN0aW9uLmh0bWwjcmVtb3ZlUHJvcGVydHlDaGFuZ2VMaXN0ZW5lcihqYXZhLmJlYW5zLlByb3BlcnR5Q2hhbmdlTGlzdGVuZXIp">removePropertyChangeListener<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>������</b></dt><dd><code>listener</code> - Ҫ�Ƴ��� <code>PropertyChangeListener</code></dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/Action.html#removePropertyChangeListener(java.beans.PropertyChangeListener)"><code>Action.removePropertyChangeListener(java.beans.PropertyChangeListener)</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="getPropertyChangeListeners()"></a><h3>
+getPropertyChangeListeners</h3>
+<pre>public <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9Qcm9wZXJ0eUNoYW5nZUxpc3RlbmVyLmh0bWw=">PropertyChangeListener<i class="fa fa-external-link-alt"></i></span>[] <b>getPropertyChangeListeners</b>()</pre>
+<dl>
+<dd>����ʹ�� addPropertyChangeListener() ���ӵ��� AbstractAction �е����� <code>PropertyChangeListener</code> ��ɵ����顣
+<p>
+</p></dd><dd><dl>
+</dl>
+</dd>
+<dd><dl>
+<dt><b>���أ�</b></dt><dd>���ӵ����� <code>PropertyChangeListener</code>�����û���������������򷵻�һ��������</dd><dt><b>�����°汾��ʼ��</b></dt>
+<dd>1.4</dd>
+</dl>
+</dd>
+</dl>
+<hr>
+<a name="clone()"></a><h3>
+clone</h3>
+<pre>protected <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span> <b>clone</b>()
+                throws <span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL0Nsb25lTm90U3VwcG9ydGVkRXhjZXB0aW9uLmh0bWw=">CloneNotSupportedException<i class="fa fa-external-link-alt"></i></span></pre>
+<dl>
+<dd>���Ƴ���������˷������������Լ��ļ�/ֵ�б��ĸ������ø�������ͨ�� <code>Object.clone()</code> Ϊ��������
+<p>
+</p></dd><dd><dl>
+<dt><b>���ǣ�</b></dt><dd>�� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1s">Object<i class="fa fa-external-link-alt"></i></span></code> �е� <code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL09iamVjdC5odG1sI2Nsb25lKCk=">clone<i class="fa fa-external-link-alt"></i></span></code></dd></dl>
+</dd>
+<dd><dl>
+<dt><b>���أ�</b></dt><dd>��ʵ����һ��������
+</dd><dt><b>�׳���</b>
+</dt><dd><code><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL0Nsb25lTm90U3VwcG9ydGVkRXhjZXB0aW9uLmh0bWw=">CloneNotSupportedException<i class="fa fa-external-link-alt"></i></span></code> - ���������಻֧�� <code>Cloneable</code> �ӿڣ�����д <code>clone</code> ����������Ҳ���׳����쳣����ָʾ�޷�����ĳ��ʵ����</dd><dt><b>����μ���</b></dt><dd><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/java/lang/Cloneable.html" title="java.lang �еĽӿ�"><code>Cloneable</code></a></dd></dl>
+</dd>
+</dl>
+<hr>
+<a name="navbar_bottom"></a>
+<a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractAction.html#skip-navbar_bottom" title="������������"></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0" summary="">
+<tbody><tr>
+<td colspan="2" bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_bottom_firstrow"></a>
+<table border="0" cellpadding="0" cellspacing="3" summary="">
+<tbody><tr align="center" valign="top">
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/overview-summary.html"><font class="NavBarFont1"><b>����</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/package-summary.html"><font class="NavBarFont1"><b>������</b></font></a>&nbsp;</td>
+<td bgcolor="#FFFFFF" class="NavBarCell1Rev"> &nbsp;<font class="NavBarFont1Rev"><b>��</b></font>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/class-use/AbstractAction.html"><font class="NavBarFont1"><b>ʹ��</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/package-tree.html"><font class="NavBarFont1"><b>��</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/deprecated-list.html"><font class="NavBarFont1"><b>�ѹ�ʱ</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/index-files/index-1.html"><font class="NavBarFont1"><b>����</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" class="NavBarCell1"> <a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/help-doc.html"><font class="NavBarFont1"><b>����</b></font></a>&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+<td align="right" valign="top" rowspan="3"><em>
+<b>Java<sup><font size="-2">TM</font></sup>&nbsp;Platform<br>Standard&nbsp;Ed. 6</b></em>
+</td>
+</tr>
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;��һ����&nbsp;
+&nbsp;<a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractButton.html" title="javax.swing �е���"><b>��һ����</b></a></font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+<a href="http://doc.canglaoshi.org/jdk6-docs/index.html?javax/swing/AbstractAction.html" target="_top"><b>���</b></a> &nbsp;
+&nbsp;<a href="http://doc.canglaoshi.org/jdk6-docs/javax/swing/AbstractAction.html" target="_top"><b>�޿��</b></a> &nbsp;
+&nbsp;<script type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../allclasses-noframe.html"><B>������</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<A HREF="../../allclasses-noframe.html"><B>������</B></A>
+</noscript>
+</font></td>
+</tr>
+<tr>
+<td valign="top" class="NavBarCell3"><font size="-2">
+ժҪ��&nbsp;Ƕ��&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNmaWVsZF9zdW1tYXJ5">�ֶ�<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNjb25zdHJ1Y3Rvcl9zdW1tYXJ5">���췽��<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNtZXRob2Rfc3VtbWFyeQ==">����<i class="fa fa-external-link-alt"></i></span></font></td>
+<td valign="top" class="NavBarCell3"><font size="-2">
+��ϸ��Ϣ��&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNmaWVsZF9kZXRhaWw=">�ֶ�<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNjb25zdHJ1Y3Rvcl9kZXRhaWw=">���췽��<i class="fa fa-external-link-alt"></i></span>&nbsp;|&nbsp;<span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvQWJzdHJhY3RBY3Rpb24uaHRtbCNtZXRob2RfZGV0YWls">����<i class="fa fa-external-link-alt"></i></span></font></td>
+</tr>
+</tbody></table>
+<a name="skip-navbar_bottom"></a>
+<hr>
+<font size="-1"><span class="exturl" data-url="aHR0cDovL2J1Z3Muc3VuLmNvbS9zZXJ2aWNlcy9idWdyZXBvcnQvaW5kZXguanNw">�ύ��������<i class="fa fa-external-link-alt"></i></span><br>�йظ���� API �ο����ϺͿ�����Ա�ĵ�������� <span class="exturl" data-url="aHR0cDovL2phdmEuc3VuLmNvbS9qYXZhc2UvNi93ZWJub3Rlcy9kZXZkb2NzLXZzLXNwZWNzLmh0bWw=">Java SE ������Ա�ĵ�<i class="fa fa-external-link-alt"></i></span>�����ĵ���������ϸ�ġ����򿪷���Ա���������Լ�������������ﶨ�塢ʹ�ü��ɺ͹�������ʾ���� </font><p><font size="-1">��Ȩ���� 2007 Sun Microsystems, Inc. ��������Ȩ���� ������<span class="exturl" data-url="aHR0cDovL2phdmEuc3VuLmNvbS9qYXZhc2UvNi9kb2NzL2xlZ2FsL2xpY2Vuc2UuaHRtbA==">����֤����<i class="fa fa-external-link-alt"></i></span>���������<span class="exturl" data-url="aHR0cDovL2phdmEuc3VuLmNvbS9kb2NzL3JlZGlzdC5odG1s">�ĵ����·ַ�����<i class="fa fa-external-link-alt"></i></span>��</font>
+
+
+</p></body></html>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">
+
+javax.swing
+
+
+�� AbstractAction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+enabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+changeSupport</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+AbstractAction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+AbstractAction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+AbstractAction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+getValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+putValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+isEnabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+setEnabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+getKeys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+firePropertyChange</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+addPropertyChangeListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+removePropertyChangeListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+getPropertyChangeListeners</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">
+clone</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AllenChen"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">AllenChen</p>
+  <div class="site-description" itemprop="description">Sometimes it's the very people who no one imagines angthing of who do the things that no one can imagine. <br> 有时候，正是那些谁也想不到的人，却做出了谁也想不到的事情。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    聊天
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FsbGVuLXpj" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Allen-zc"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vY2NfYWxsZW4=" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;cc_allen"><i class="fab fa-git fa-fw"></i>Gitee</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vdS80Mjk2NjllNjc5MTA=" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;429669e67910"><i class="fa fa-heartbeat fa-fw"></i>简书</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lJR0VfUHJvZ3JhbW1lcg==" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;YIGE_Programmer"><i class="fab fa-css3-alt fa-fw"></i>CSDN</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vdS9hbGxlbmNoZW5jaGVuLw==" title="LeetCode → https:&#x2F;&#x2F;leetcode-cn.com&#x2F;u&#x2F;allenchenchen&#x2F;"><i class="fas fa-project-diagram fa-fw"></i>LeetCode</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOlsxMDUzODMxNzMwQHFxLmNvbV0=" title="E-Mail → mailto:[1053831730@qq.com]"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe-americas fa-fw"></i>
+      推荐链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/" title="&#x2F;">博客主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/Dynamic_resume/public/index.html" title="&#x2F;Dynamic_resume&#x2F;public&#x2F;index.html">动态简历</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/bookstore/" title="&#x2F;bookstore&#x2F;">作品商铺</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/reward/" title="&#x2F;reward&#x2F;">打赏记录</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cDovL3hpYW8teWl4aWFuZy5naXRlZS5pby8=" title="http:&#x2F;&#x2F;xiao-yixiang.gitee.io&#x2F;">友链：xiao-yixiang blog</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+
+      <!--Teg Cloud-->
+      
+      <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+      <div class="widget-wrap">
+        <h5 class="widget-title"></h5>
+        <div id="myCanvasContainer" class="widget tagcloud">
+          <canvas width="200" height="200" id="resCanvas" style="width=100%">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Basics/" rel="tag">Computer-Basics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/" rel="tag">Data-Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operation-System/" rel="tag">Operation System</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-test/" rel="tag">Penetration-test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Review-notes/" rel="tag">Review-notes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-networks/" rel="tag">computer-networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali-Linux/" rel="tag">kali-Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a><span class="tag-list-count">1</span></li></ul>
+          </canvas>
+        </div>
+      </div>
+      
+
+      <!--/music-->
+      <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=6729618663&auto=1&height=90"></iframe>
+        </iframe>
+      </div>
+
+      <!--/clustrmaps-Globe Widget-->
+      <h5></h5>
+      <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=8DDlrY7LseMCzWpgoOtlFUVgNT6thS95opqTKDa2brk"></script>
+
+      <!--/clustrmaps-Map Widget-->
+      <!--/<h3 class="widget-title">访客地图</h3>-->
+      <!--/<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=8DDlrY7LseMCzWpgoOtlFUVgNT6thS95opqTKDa2brk&cl=ffffff&w=a"></script>-->
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-summary.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-summary.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        <script
+  async
+  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AllenChen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">206k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:07</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class=""></i>
+      </span>
+      <span class="site-uv">
+        我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class=""></i>
+      </span>
+      <span class="site-pv">
+        历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/1oupu5fu1n6wut9ijokgt2qy71btajch.js"></script>
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20201006,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#1890ff">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+ 
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+
+
+ 
+<script async src="//code.tidio.co/1oupu5fu1n6wut9ijokgt2qy71btajch.js"></script>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 50,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+          $('#sidebar').wobbleWindow({
+            radius: 50,
+            movementLeft: false,
+            movementTop: false,
+            movementBottom: false,
+            position: 'fixed',
+            debug: false,
+          });
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 50,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
+
+
+
+
+  
+    <script src="/js/cursor/text.js"></script>
+  
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+
+
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+  <!-- 打字火花特效 -->
+  <script type="text/javascript" src="/js/src/activate-power-mode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'OsPCR38gNugKggSqhcd4ElLd-gzGzoHsz',
+      appKey     : 'vCoE9BBjDjs7inHz3VgLz6MI',
+      placeholder: "支持Markdown语法哦！（今后将不再回复不留昵称和邮箱的匿名用户）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":true,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":true},"react":{"opacityDefault":0.7}});</script></body>
+</html>

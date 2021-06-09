@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"allen-zc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":"/source/images/scroll.png"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="�����б� (Java Platform SE 6)    [id^&#x3D;root], [id^&#x3D;docs], .cc_cursor, body, .ogdlpmhglpejoiomcodnpjnfgcpmgale_default, body, html, input[type&#x3D;&quot;date&quot;], input[type&#x3D;&quot;time&quot;], input[type&#x3D;&quot;datetime-local">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AllenChen&#39;s Blog">
+<meta property="og:url" content="https://allen-zc.github.io/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-frame.html">
+<meta property="og:site_name" content="AllenChen&#39;s Blog">
+<meta property="og:description" content="�����б� (Java Platform SE 6)    [id^&#x3D;root], [id^&#x3D;docs], .cc_cursor, body, .ogdlpmhglpejoiomcodnpjnfgcpmgale_default, body, html, input[type&#x3D;&quot;date&quot;], input[type&#x3D;&quot;time&quot;], input[type&#x3D;&quot;datetime-local">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-08T10:54:48.347Z">
+<meta property="article:modified_time" content="2021-06-08T10:54:47.959Z">
+<meta property="article:author" content="AllenChen">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://allen-zc.github.io/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-frame">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | AllenChen's Blog
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a target="_blank" rel="noopener" href="https://github.com/Allen-zc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenChen's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">晨学长</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-top">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>排行榜</a>
+
+  </li>
+        <li class="menu-item menu-item-bookstore">
+
+    <a href="/bookstore/" rel="section"><i class="fa fa-store fa-fw"></i>书店</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-book-open fa-fw"></i>阅读</a>
+
+  </li>
+        <li class="menu-item menu-item-movies">
+
+    <a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>观影</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fa fa-camera fa-fw"></i>生活足迹</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user-graduate fa-fw"></i>关于我</a>
+
+  </li>
+        <li class="menu-item menu-item-toolbox">
+
+    <a href="/toolbox/" rel="section"><i class="fa fa-toolbox fa-fw"></i>工具箱</a>
+
+  </li>
+        <li class="menu-item menu-item-dynamic_resume">
+
+    <a href="/Dynamic_resume/public/" rel="section"><i class="fa fa-id-card fa-fw"></i>动态简历</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FsbGVuLXpj" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0055)http://doc.canglaoshi.org/jdk6-docs/overview-frame.html -->
+<html ml-update="aware"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>
+�����б� (Java Platform SE 6)
+</title>
+<meta name="date" content="2007-03-19">
+<link rel="stylesheet" type="text/css" href="./stylesheet.css" title="Style">
+<style type="text/css">[id^=root], [id^=docs], .cc_cursor, body, .ogdlpmhglpejoiomcodnpjnfgcpmgale_default, body, html, input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input::-webkit-contacts-auto-fill-button, input:read-only {cursor: url("data:image/png;base64,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") 0 0 , auto !important; }[role^=button], button, .cc_pointer, [type="search"]::-webkit-search-cancel-button, a, select, [type="search"]::-webkit-search-decoration, .paper-button, .ytp-progress-bar-container, input[type=submit], :link, :visited, a > *, img, button, ::-webkit-scrollbar-button, .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer, ::-webkit-file-upload-button, button, .ytp-volume-panel, #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon { cursor: url("data:image/png;base64,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") 9 0, auto !important; } * {cursor: url("data:image/png;base64,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") 0 0 , auto }a, button, [type^=button], [role^=button]   { cursor: url("data:image/png;base64,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") 9 0, auto }</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+<body bgcolor="white">
+<table border="0" width="100%" summary="">
+<tbody><tr>
+<th align="left" nowrap=""><font size="+1" class="FrameTitleFont">
+<b><b>Java<sup><font size="-2">TM</font></sup>&nbsp;Platform<br>Standard&nbsp;Ed. 6</b></b></font></th>
+</tr>
+</tbody></table>
+<table border="0" width="100%" summary="">
+<tbody><tr>
+<td nowrap=""><font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvYWxsY2xhc3Nlcy1mcmFtZS5odG1s">������<i class="fa fa-external-link-alt"></i></span></font>
+<p>
+<font size="+1" class="FrameHeadingFont">
+������</font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hcHBsZXQvcGFja2FnZS1mcmFtZS5odG1s">java.applet<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvcGFja2FnZS1mcmFtZS5odG1s">java.awt<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvY29sb3IvcGFja2FnZS1mcmFtZS5odG1s">java.awt.color<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZGF0YXRyYW5zZmVyL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.awt.datatransfer<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZG5kL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.awt.dnd<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZXZlbnQvcGFja2FnZS1mcmFtZS5odG1s">java.awt.event<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZm9udC9wYWNrYWdlLWZyYW1lLmh0bWw=">java.awt.font<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvZ2VvbS9wYWNrYWdlLWZyYW1lLmh0bWw=">java.awt.geom<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvaW0vcGFja2FnZS1mcmFtZS5odG1s">java.awt.im<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvaW0vc3BpL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.awt.im.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvaW1hZ2UvcGFja2FnZS1mcmFtZS5odG1s">java.awt.image<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvaW1hZ2UvcmVuZGVyYWJsZS9wYWNrYWdlLWZyYW1lLmh0bWw=">java.awt.image.renderable<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9hd3QvcHJpbnQvcGFja2FnZS1mcmFtZS5odG1s">java.awt.print<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9wYWNrYWdlLWZyYW1lLmh0bWw=">java.beans<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9iZWFucy9iZWFuY29udGV4dC9wYWNrYWdlLWZyYW1lLmh0bWw=">java.beans.beancontext<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9pby9wYWNrYWdlLWZyYW1lLmh0bWw=">java.io<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.lang<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL2Fubm90YXRpb24vcGFja2FnZS1mcmFtZS5odG1s">java.lang.annotation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL2luc3RydW1lbnQvcGFja2FnZS1mcmFtZS5odG1s">java.lang.instrument<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL21hbmFnZW1lbnQvcGFja2FnZS1mcmFtZS5odG1s">java.lang.management<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL3JlZi9wYWNrYWdlLWZyYW1lLmh0bWw=">java.lang.ref<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9sYW5nL3JlZmxlY3QvcGFja2FnZS1mcmFtZS5odG1s">java.lang.reflect<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9tYXRoL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.math<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9uZXQvcGFja2FnZS1mcmFtZS5odG1s">java.net<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9uaW8vcGFja2FnZS1mcmFtZS5odG1s">java.nio<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9uaW8vY2hhbm5lbHMvcGFja2FnZS1mcmFtZS5odG1s">java.nio.channels<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9uaW8vY2hhbm5lbHMvc3BpL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.nio.channels.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9uaW8vY2hhcnNldC9wYWNrYWdlLWZyYW1lLmh0bWw=">java.nio.charset<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9uaW8vY2hhcnNldC9zcGkvcGFja2FnZS1mcmFtZS5odG1s">java.nio.charset.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9ybWkvcGFja2FnZS1mcmFtZS5odG1s">java.rmi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9ybWkvYWN0aXZhdGlvbi9wYWNrYWdlLWZyYW1lLmh0bWw=">java.rmi.activation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9ybWkvZGdjL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.rmi.dgc<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9ybWkvcmVnaXN0cnkvcGFja2FnZS1mcmFtZS5odG1s">java.rmi.registry<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9ybWkvc2VydmVyL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.rmi.server<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9zZWN1cml0eS9wYWNrYWdlLWZyYW1lLmh0bWw=">java.security<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9zZWN1cml0eS9hY2wvcGFja2FnZS1mcmFtZS5odG1s">java.security.acl<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9zZWN1cml0eS9jZXJ0L3BhY2thZ2UtZnJhbWUuaHRtbA==">java.security.cert<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9zZWN1cml0eS9pbnRlcmZhY2VzL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.security.interfaces<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9zZWN1cml0eS9zcGVjL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.security.spec<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS9zcWwvcGFja2FnZS1mcmFtZS5odG1s">java.sql<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS90ZXh0L3BhY2thZ2UtZnJhbWUuaHRtbA==">java.text<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS90ZXh0L3NwaS9wYWNrYWdlLWZyYW1lLmh0bWw=">java.text.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.util<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL2NvbmN1cnJlbnQvcGFja2FnZS1mcmFtZS5odG1s">java.util.concurrent<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL2NvbmN1cnJlbnQvYXRvbWljL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.util.concurrent.atomic<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL2NvbmN1cnJlbnQvbG9ja3MvcGFja2FnZS1mcmFtZS5odG1s">java.util.concurrent.locks<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL2phci9wYWNrYWdlLWZyYW1lLmh0bWw=">java.util.jar<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL2xvZ2dpbmcvcGFja2FnZS1mcmFtZS5odG1s">java.util.logging<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL3ByZWZzL3BhY2thZ2UtZnJhbWUuaHRtbA==">java.util.prefs<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL3JlZ2V4L3BhY2thZ2UtZnJhbWUuaHRtbA==">java.util.regex<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL3NwaS9wYWNrYWdlLWZyYW1lLmh0bWw=">java.util.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YS91dGlsL3ppcC9wYWNrYWdlLWZyYW1lLmh0bWw=">java.util.zip<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvYWNjZXNzaWJpbGl0eS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.accessibility<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvYWN0aXZhdGlvbi9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.activation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvYWN0aXZpdHkvcGFja2FnZS1mcmFtZS5odG1s">javax.activity<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvYW5ub3RhdGlvbi9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.annotation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvYW5ub3RhdGlvbi9wcm9jZXNzaW5nL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.annotation.processing<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvY3J5cHRvL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.crypto<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvY3J5cHRvL2ludGVyZmFjZXMvcGFja2FnZS1mcmFtZS5odG1s">javax.crypto.interfaces<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvY3J5cHRvL3NwZWMvcGFja2FnZS1mcmFtZS5odG1s">javax.crypto.spec<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.imageio<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9ldmVudC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.imageio.event<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9tZXRhZGF0YS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.imageio.metadata<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9wbHVnaW5zL2JtcC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.imageio.plugins.bmp<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9wbHVnaW5zL2pwZWcvcGFja2FnZS1mcmFtZS5odG1s">javax.imageio.plugins.jpeg<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9zcGkvcGFja2FnZS1mcmFtZS5odG1s">javax.imageio.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvaW1hZ2Vpby9zdHJlYW0vcGFja2FnZS1mcmFtZS5odG1s">javax.imageio.stream<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvandzL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.jws<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvandzL3NvYXAvcGFja2FnZS1mcmFtZS5odG1s">javax.jws.soap<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbGFuZy9tb2RlbC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.lang.model<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbGFuZy9tb2RlbC9lbGVtZW50L3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.lang.model.element<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbGFuZy9tb2RlbC90eXBlL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.lang.model.type<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbGFuZy9tb2RlbC91dGlsL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.lang.model.util<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.management<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9sb2FkaW5nL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.management.loading<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9tb2RlbG1iZWFuL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.management.modelmbean<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9tb25pdG9yL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.management.monitor<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9vcGVubWJlYW4vcGFja2FnZS1mcmFtZS5odG1s">javax.management.openmbean<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9yZWxhdGlvbi9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.management.relation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9yZW1vdGUvcGFja2FnZS1mcmFtZS5odG1s">javax.management.remote<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC9yZW1vdGUvcm1pL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.management.remote.rmi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbWFuYWdlbWVudC90aW1lci9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.management.timer<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmFtaW5nL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.naming<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmFtaW5nL2RpcmVjdG9yeS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.naming.directory<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmFtaW5nL2V2ZW50L3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.naming.event<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmFtaW5nL2xkYXAvcGFja2FnZS1mcmFtZS5odG1s">javax.naming.ldap<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmFtaW5nL3NwaS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.naming.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmV0L3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.net<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvbmV0L3NzbC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.net.ssl<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcHJpbnQvcGFja2FnZS1mcmFtZS5odG1s">javax.print<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcHJpbnQvYXR0cmlidXRlL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.print.attribute<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcHJpbnQvYXR0cmlidXRlL3N0YW5kYXJkL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.print.attribute.standard<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcHJpbnQvZXZlbnQvcGFja2FnZS1mcmFtZS5odG1s">javax.print.event<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcm1pL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.rmi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcm1pL0NPUkJBL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.rmi.CORBA<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvcm1pL3NzbC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.rmi.ssl<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2NyaXB0L3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.script<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvYXV0aC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.security.auth<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvYXV0aC9jYWxsYmFjay9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.security.auth.callback<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvYXV0aC9rZXJiZXJvcy9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.security.auth.kerberos<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvYXV0aC9sb2dpbi9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.security.auth.login<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvYXV0aC9zcGkvcGFja2FnZS1mcmFtZS5odG1s">javax.security.auth.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvYXV0aC94NTAwL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.security.auth.x500<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvY2VydC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.security.cert<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc2VjdXJpdHkvc2FzbC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.security.sasl<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc291bmQvbWlkaS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.sound.midi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc291bmQvbWlkaS9zcGkvcGFja2FnZS1mcmFtZS5odG1s">javax.sound.midi.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc291bmQvc2FtcGxlZC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.sound.sampled<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc291bmQvc2FtcGxlZC9zcGkvcGFja2FnZS1mcmFtZS5odG1s">javax.sound.sampled.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3FsL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.sql<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3FsL3Jvd3NldC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.sql.rowset<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3FsL3Jvd3NldC9zZXJpYWwvcGFja2FnZS1mcmFtZS5odG1s">javax.sql.rowset.serial<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3FsL3Jvd3NldC9zcGkvcGFja2FnZS1mcmFtZS5odG1s">javax.sql.rowset.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGFja2FnZS1mcmFtZS5odG1s">javax.swing<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvYm9yZGVyL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.swing.border<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvY29sb3JjaG9vc2VyL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.swing.colorchooser<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvZXZlbnQvcGFja2FnZS1mcmFtZS5odG1s">javax.swing.event<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvZmlsZWNob29zZXIvcGFja2FnZS1mcmFtZS5odG1s">javax.swing.filechooser<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.plaf<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9iYXNpYy9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.plaf.basic<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9tZXRhbC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.plaf.metal<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9tdWx0aS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.plaf.multi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvcGxhZi9zeW50aC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.plaf.synth<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdGFibGUvcGFja2FnZS1mcmFtZS5odG1s">javax.swing.table<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdGV4dC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.text<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdGV4dC9odG1sL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.swing.text.html<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdGV4dC9odG1sL3BhcnNlci9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.text.html.parser<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdGV4dC9ydGYvcGFja2FnZS1mcmFtZS5odG1s">javax.swing.text.rtf<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdHJlZS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.tree<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvc3dpbmcvdW5kby9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.swing.undo<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvdG9vbHMvcGFja2FnZS1mcmFtZS5odG1s">javax.tools<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvdHJhbnNhY3Rpb24vcGFja2FnZS1mcmFtZS5odG1s">javax.transaction<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgvdHJhbnNhY3Rpb24veGEvcGFja2FnZS1mcmFtZS5odG1s">javax.transaction.xa<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2JpbmQvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.bind<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2JpbmQvYW5ub3RhdGlvbi9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.bind.annotation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2JpbmQvYW5ub3RhdGlvbi9hZGFwdGVycy9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.bind.annotation.adapters<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2JpbmQvYXR0YWNobWVudC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.bind.attachment<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2JpbmQvaGVscGVycy9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.bind.helpers<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2JpbmQvdXRpbC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.bind.util<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2NyeXB0by9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.crypto<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2NyeXB0by9kb20vcGFja2FnZS1mcmFtZS5odG1s">javax.xml.crypto.dom<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2NyeXB0by9kc2lnL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml.crypto.dsig<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2NyeXB0by9kc2lnL2RvbS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.crypto.dsig.dom<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2NyeXB0by9kc2lnL2tleWluZm8vcGFja2FnZS1mcmFtZS5odG1s">javax.xml.crypto.dsig.keyinfo<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2NyeXB0by9kc2lnL3NwZWMvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.crypto.dsig.spec<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL2RhdGF0eXBlL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml.datatype<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL25hbWVzcGFjZS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.namespace<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3BhcnNlcnMvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.parsers<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3NvYXAvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.soap<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3N0cmVhbS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.stream<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3N0cmVhbS9ldmVudHMvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.stream.events<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3N0cmVhbS91dGlsL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml.stream.util<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3RyYW5zZm9ybS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.transform<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3RyYW5zZm9ybS9kb20vcGFja2FnZS1mcmFtZS5odG1s">javax.xml.transform.dom<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3RyYW5zZm9ybS9zYXgvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.transform.sax<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3RyYW5zZm9ybS9zdGF4L3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml.transform.stax<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3RyYW5zZm9ybS9zdHJlYW0vcGFja2FnZS1mcmFtZS5odG1s">javax.xml.transform.stream<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3ZhbGlkYXRpb24vcGFja2FnZS1mcmFtZS5odG1s">javax.xml.validation<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3dzL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml.ws<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3dzL2hhbmRsZXIvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.ws.handler<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3dzL2hhbmRsZXIvc29hcC9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.ws.handler.soap<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3dzL2h0dHAvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.ws.http<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3dzL3NvYXAvcGFja2FnZS1mcmFtZS5odG1s">javax.xml.ws.soap<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3dzL3NwaS9wYWNrYWdlLWZyYW1lLmh0bWw=">javax.xml.ws.spi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3MvamF2YXgveG1sL3hwYXRoL3BhY2thZ2UtZnJhbWUuaHRtbA==">javax.xml.xpath<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL2lldGYvamdzcy9wYWNrYWdlLWZyYW1lLmh0bWw=">org.ietf.jgss<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.CORBA<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQV8yXzMvcGFja2FnZS1mcmFtZS5odG1s">org.omg.CORBA_2_3<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQV8yXzMvcG9ydGFibGUvcGFja2FnZS1mcmFtZS5odG1s">org.omg.CORBA_2_3.portable<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQS9EeW5BbnlQYWNrYWdlL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.CORBA.DynAnyPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQS9PUkJQYWNrYWdlL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.CORBA.ORBPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQS9wb3J0YWJsZS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.CORBA.portable<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9DT1JCQS9UeXBlQ29kZVBhY2thZ2UvcGFja2FnZS1mcmFtZS5odG1s">org.omg.CORBA.TypeCodePackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Db3NOYW1pbmcvcGFja2FnZS1mcmFtZS5odG1s">org.omg.CosNaming<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Db3NOYW1pbmcvTmFtaW5nQ29udGV4dEV4dFBhY2thZ2UvcGFja2FnZS1mcmFtZS5odG1s">org.omg.CosNaming.NamingContextExtPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Db3NOYW1pbmcvTmFtaW5nQ29udGV4dFBhY2thZ2UvcGFja2FnZS1mcmFtZS5odG1s">org.omg.CosNaming.NamingContextPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9EeW5hbWljL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.Dynamic<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9EeW5hbWljQW55L3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.DynamicAny<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9EeW5hbWljQW55L0R5bkFueUZhY3RvcnlQYWNrYWdlL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.DynamicAny.DynAnyFactoryPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9EeW5hbWljQW55L0R5bkFueVBhY2thZ2UvcGFja2FnZS1mcmFtZS5odG1s">org.omg.DynamicAny.DynAnyPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9JT1AvcGFja2FnZS1mcmFtZS5odG1s">org.omg.IOP<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9JT1AvQ29kZWNGYWN0b3J5UGFja2FnZS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.IOP.CodecFactoryPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9JT1AvQ29kZWNQYWNrYWdlL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.IOP.CodecPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9NZXNzYWdpbmcvcGFja2FnZS1mcmFtZS5odG1s">org.omg.Messaging<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZUludGVyY2VwdG9yL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.PortableInterceptor<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZUludGVyY2VwdG9yL09SQkluaXRJbmZvUGFja2FnZS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.PortableInterceptor.ORBInitInfoPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZVNlcnZlci9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.PortableServer<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZVNlcnZlci9DdXJyZW50UGFja2FnZS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.PortableServer.CurrentPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZVNlcnZlci9QT0FNYW5hZ2VyUGFja2FnZS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.PortableServer.POAManagerPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZVNlcnZlci9QT0FQYWNrYWdlL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.PortableServer.POAPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZVNlcnZlci9wb3J0YWJsZS9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.PortableServer.portable<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9Qb3J0YWJsZVNlcnZlci9TZXJ2YW50TG9jYXRvclBhY2thZ2UvcGFja2FnZS1mcmFtZS5odG1s">org.omg.PortableServer.ServantLocatorPackage<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9TZW5kaW5nQ29udGV4dC9wYWNrYWdlLWZyYW1lLmh0bWw=">org.omg.SendingContext<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL29tZy9zdHViL2phdmEvcm1pL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.omg.stub.java.rmi<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3czYy9kb20vcGFja2FnZS1mcmFtZS5odG1s">org.w3c.dom<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3czYy9kb20vYm9vdHN0cmFwL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.w3c.dom.bootstrap<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3czYy9kb20vZXZlbnRzL3BhY2thZ2UtZnJhbWUuaHRtbA==">org.w3c.dom.events<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3czYy9kb20vbHMvcGFja2FnZS1mcmFtZS5odG1s">org.w3c.dom.ls<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3htbC9zYXgvcGFja2FnZS1mcmFtZS5odG1s">org.xml.sax<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3htbC9zYXgvZXh0L3BhY2thZ2UtZnJhbWUuaHRtbA==">org.xml.sax.ext<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+<font class="FrameItemFont"><span class="exturl" data-url="aHR0cDovL2RvYy5jYW5nbGFvc2hpLm9yZy9qZGs2LWRvY3Mvb3JnL3htbC9zYXgvaGVscGVycy9wYWNrYWdlLWZyYW1lLmh0bWw=">org.xml.sax.helpers<i class="fa fa-external-link-alt"></i></span></font>
+<br>
+</p></td>
+</tr>
+</tbody></table>
+<p>
+&nbsp;
+
+
+</p></body></html>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AllenChen"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">AllenChen</p>
+  <div class="site-description" itemprop="description">Sometimes it's the very people who no one imagines angthing of who do the things that no one can imagine. <br> 有时候，正是那些谁也想不到的人，却做出了谁也想不到的事情。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    聊天
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FsbGVuLXpj" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Allen-zc"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vY2NfYWxsZW4=" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;cc_allen"><i class="fab fa-git fa-fw"></i>Gitee</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vdS80Mjk2NjllNjc5MTA=" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;429669e67910"><i class="fa fa-heartbeat fa-fw"></i>简书</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lJR0VfUHJvZ3JhbW1lcg==" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;YIGE_Programmer"><i class="fab fa-css3-alt fa-fw"></i>CSDN</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vdS9hbGxlbmNoZW5jaGVuLw==" title="LeetCode → https:&#x2F;&#x2F;leetcode-cn.com&#x2F;u&#x2F;allenchenchen&#x2F;"><i class="fas fa-project-diagram fa-fw"></i>LeetCode</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOlsxMDUzODMxNzMwQHFxLmNvbV0=" title="E-Mail → mailto:[1053831730@qq.com]"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe-americas fa-fw"></i>
+      推荐链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/" title="&#x2F;">博客主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/Dynamic_resume/public/index.html" title="&#x2F;Dynamic_resume&#x2F;public&#x2F;index.html">动态简历</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/bookstore/" title="&#x2F;bookstore&#x2F;">作品商铺</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/reward/" title="&#x2F;reward&#x2F;">打赏记录</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cDovL3hpYW8teWl4aWFuZy5naXRlZS5pby8=" title="http:&#x2F;&#x2F;xiao-yixiang.gitee.io&#x2F;">友链：xiao-yixiang blog</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+
+      <!--Teg Cloud-->
+      
+      <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+      <div class="widget-wrap">
+        <h5 class="widget-title"></h5>
+        <div id="myCanvasContainer" class="widget tagcloud">
+          <canvas width="200" height="200" id="resCanvas" style="width=100%">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Basics/" rel="tag">Computer-Basics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/" rel="tag">Data-Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operation-System/" rel="tag">Operation System</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-test/" rel="tag">Penetration-test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Review-notes/" rel="tag">Review-notes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer-networks/" rel="tag">computer-networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali-Linux/" rel="tag">kali-Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a><span class="tag-list-count">1</span></li></ul>
+          </canvas>
+        </div>
+      </div>
+      
+
+      <!--/music-->
+      <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=6729618663&auto=1&height=90"></iframe>
+        </iframe>
+      </div>
+
+      <!--/clustrmaps-Globe Widget-->
+      <h5></h5>
+      <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=8DDlrY7LseMCzWpgoOtlFUVgNT6thS95opqTKDa2brk"></script>
+
+      <!--/clustrmaps-Map Widget-->
+      <!--/<h3 class="widget-title">访客地图</h3>-->
+      <!--/<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=8DDlrY7LseMCzWpgoOtlFUVgNT6thS95opqTKDa2brk&cl=ffffff&w=a"></script>-->
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-frame.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/AbstractAction%20(Java%20Platform%20SE%206)_files/overview-frame.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        <script
+  async
+  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AllenChen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">206k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:07</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class=""></i>
+      </span>
+      <span class="site-uv">
+        我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class=""></i>
+      </span>
+      <span class="site-pv">
+        历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/1oupu5fu1n6wut9ijokgt2qy71btajch.js"></script>
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20201006,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#1890ff">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+ 
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+
+
+ 
+<script async src="//code.tidio.co/1oupu5fu1n6wut9ijokgt2qy71btajch.js"></script>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 50,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+          $('#sidebar').wobbleWindow({
+            radius: 50,
+            movementLeft: false,
+            movementTop: false,
+            movementBottom: false,
+            position: 'fixed',
+            debug: false,
+          });
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 50,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
+
+
+
+
+  
+    <script src="/js/cursor/text.js"></script>
+  
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+
+
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+  <!-- 打字火花特效 -->
+  <script type="text/javascript" src="/js/src/activate-power-mode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'OsPCR38gNugKggSqhcd4ElLd-gzGzoHsz',
+      appKey     : 'vCoE9BBjDjs7inHz3VgLz6MI',
+      placeholder: "支持Markdown语法哦！（今后将不再回复不留昵称和邮箱的匿名用户）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":true,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":true},"react":{"opacityDefault":0.7}});</script></body>
+</html>
